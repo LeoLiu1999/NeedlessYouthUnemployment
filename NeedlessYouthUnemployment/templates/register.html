@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="w3-center w3-animate-left">
+    <h1>Create Account</h1>
+
+    <br><br><br><br><br>
+
+    <form action="/signup", method = "POST">
+        <p style="font-family: Verdana; font-weight: bold; font-size: 20px">Enter login info</p>
+        <div>
+            <label><strong>Username:</strong></label>
+            <input type="text" name="User" placeholder="Username"><br>
+        </div>
+        <br>
+        <div>
+            <label><strong>Password:</strong></label>
+            <input type="password" name="Pass" placeholder="Password"><br>
+        </div>
+        <br>
+        <div>
+            <label><strong>Confirm Password:</strong></label>
+            <input type="password" name="confPass" placeholder="Password"><br>
+        </div>
+        <br>
+        <input type="submit" value="Create" class="btn" style="font-size:15px">
+    </form>
+
+</div>
+
+
+{% endblock content %}

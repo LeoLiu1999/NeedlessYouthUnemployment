@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<center>
+    <h1 class="w3-center w3-animate-left">Welcome to NeedlessYouthUnemployment!</h1>
+
+    <br><br><br><br><br>
+
+    {% if selection %}
+    <button onclick="window.location.href='/login'" class="btn w3-center w3-animate-left"> Login </button>&emsp;
+    <button onclick="window.location.href='/register'" class="btn w3-center w3-animate-left"> Create Account </button>&emsp;
+    {% else %}
+    <button onclick="window.location.href='/join'" class="btn w3-center w3-animate-left"> Join Game </button>&emsp;
+    <button onclick="window.location.href='/create'" class="btn w3-center w3-animate-left"> Create Game </button>&emsp;
+    <button onclick="window.location.href='/logout'" class="btn w3-center w3-animate-left"> Logout </button>&emsp;
+    {% endif %}
+</center>
+
+{% endblock content %}
