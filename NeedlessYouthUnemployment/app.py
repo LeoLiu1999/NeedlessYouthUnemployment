@@ -3,8 +3,7 @@ import os
 import json
 import sqlite3
 import random
-
-from util import db_builder
+from NeedlessYouthUnemployment.util import db_builder
 
 app = Flask(__name__)
 app.secret_key = "super secret key lmfao"

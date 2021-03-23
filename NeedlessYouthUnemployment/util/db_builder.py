@@ -1,7 +1,7 @@
 import sqlite3   #enable control of an sqlite database
 import csv       #facilitates CSV I/O
 from hashlib import sha256
-f="data/db.db"
+f="NeedlessYouthUnemployment/data/db.db"
 
 def create_db():
     db = sqlite3.connect(f)
