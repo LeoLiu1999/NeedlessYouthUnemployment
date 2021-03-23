@@ -7,5 +7,5 @@ deploy:
   provider: heroku
   api_key:
     secure: "4a3c18fc-175d-4baf-9514-0f2ce1700619"
-    app: needless-youth-unemployment
-    on: main
+  app: needless-youth-unemployment
+  on: main
