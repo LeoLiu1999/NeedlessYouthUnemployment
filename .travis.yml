@@ -1,11 +1,10 @@
 language: python
 install:
-  - pip install -r ./NeedlessYouthUnemployment/requirements.txt
+- pip install -r ./NeedlessYouthUnemployment/requirements.txt
 script: pytest
-
 deploy:
   provider: heroku
   api_key:
-    secure: "4a3c18fc-175d-4baf-9514-0f2ce1700619"
+    secure: wNSVc9hqDNNl5EmMhbVKAoSIaYqNDvTCd88YHtgW85g+k4CReXE8bheTb53BR9LXrYmWdH0Sa6uX5U4k9ND9zfL3dNbjfiYAKt0nOWKRXu8XG21js8DE8VKJ//XNxZSRylq8dCdcfMSdhpaovVKyEYL7R/ujLcEmF8uWEFtReDnaN/2VrMRs3sU1y2FpGmPRvKWWOz1n3xVmMokX/J5dB4mpjQXnvyoEddQfZ6GYEKPU4gFoAJeqFsP7mtK0BrvPHrvNVPXvYXQhYlF9uYIUZ2ZKQXjo6GdsW4uJo/aUWcii/d0luVT8vkQUBgq2wDDuNkyM5StK/CtB0LY5WeG0JaLeO1Pe4Op9so31SDvHH/YyxOoeFgXKQwTCbQHmxKvNQwhvPGbbbe5Zwf8KYtmQQfJ7yuc9WCxcgUKaZId1OKfHkJPbwJVhcUz13WEGKz44uyDBtPODw46wc43BPfBHPXFIOauYNtjE74/Vz8mli5k4EI3hv7NjxzqSfFMGlShPhXYQs9bmY2c0cOlFyoGay7Fk0wuuIGVTtnyUwaAzY6fywvGkycEzdVOLH++CDCUVzQzjFanSkIDwibVAbSmfvVcFpTXx1SgGbr+A6YFSM3C2GiL/7P41xz9fxg89ZODdaP1FbP4A7Kh8VlBpz/3PUi/kqWTJSkVoC6u2V8WRKsU=
   app: needless-youth-unemployment
   on: main
