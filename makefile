@@ -2,7 +2,6 @@
 FORCE:
 
 tests: FORCE
-	flake8 *.py
 	python3 NeedlessYouthUnemployment/test_app.py
 
 prod: tests
