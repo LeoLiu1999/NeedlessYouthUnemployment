@@ -1,7 +1,10 @@
 # NeedlessYouthUnemployment
 Spring 2021 Senior Design project by Leo Liu, Rihui Zheng, Md Abedin, and Kyle Lin
 
-## Launch Instructions
+## Deployed here:
+https://needless-youth-unemployment.herokuapp.com/
+
+## Local Launch Instructions
 
 ### 1. Clone this repository
 
