@@ -68,13 +68,13 @@ def signup():
 
 #     return render_template("create.html", code_num = code)
 
-@app.route("/create")
+@app.route("/find")
 def find():
-    return "Clicked Find"
+    return "Clicked Find Internship"
 
 @app.route("/view")
 def create():
-    return "Clicked View"
+    return "Clicked View Applications"
 
 @app.route("/logout")
 def logout():
