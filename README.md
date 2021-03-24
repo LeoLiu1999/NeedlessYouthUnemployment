@@ -39,7 +39,7 @@ In the repository for this site:
 
 `cd NeedlessYouthUnemployment`
 
-`python __init__.py`
+`python app.py`
 
 In a browser, navigate to:
 

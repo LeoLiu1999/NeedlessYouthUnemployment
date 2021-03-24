@@ -57,16 +57,24 @@ def signup():
         flash('That username has already been taken!')
     return render_template('register.html')
 
-@app.route("/create")
-def create():
-    if "user" not in session:
-        return redirect("/")
-    code = int(random.random() * 1000000)
-    while db_builder.auth_id(code):
-        code = int(random.random() * 1000000)
-    db_builder.add_lobby(code, session["user"])
+# @app.route("/create")
+# def create():
+#     if "user" not in session:
+#         return redirect("/")
+#     code = int(random.random() * 1000000)
+#     while db_builder.auth_id(code):
+#         code = int(random.random() * 1000000)
+#     db_builder.add_lobby(code, session["user"])
 
-    return render_template("create.html", code_num = code)
+#     return render_template("create.html", code_num = code)
+
+@app.route("/create")
+def find():
+    return "Clicked Find"
+
+@app.route("/view")
+def create():
+    return "Clicked View"
 
 @app.route("/logout")
 def logout():
