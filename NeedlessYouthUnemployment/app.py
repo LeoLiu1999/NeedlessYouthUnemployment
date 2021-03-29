@@ -1,8 +1,4 @@
 from flask import Flask, render_template, flash, redirect, request, session
-# import os
-# import json
-# import sqlite3
-# import random
 from util import db_builder
 
 app = Flask(__name__)

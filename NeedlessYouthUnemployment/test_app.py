@@ -1,13 +1,10 @@
 import unittest
 import app
-import os
 
 
 class TestEndpoints(unittest.TestCase):
     def setUp(self):
         self.app = app.app.test_client()
-
-        print(os.environ.get('PWD'))
 
     def test_home(self):
         """
