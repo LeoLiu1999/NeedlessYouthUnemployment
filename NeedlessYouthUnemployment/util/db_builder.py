@@ -3,8 +3,8 @@ import csv       #facilitates CSV I/O
 from hashlib import sha256
 import os
 f = '.'
-f=os.environ.get('PWD')
-f="data/db.db"
+f = os.environ.get('PYTHONPATH')
+f = "data/db.db"
 
 def create_db():
     db = sqlite3.connect(f)
