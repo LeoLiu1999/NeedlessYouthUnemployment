@@ -39,7 +39,7 @@ def auth():
 
 @app.route("/register")
 def register():
-    return render_template("register.html",title="Register")
+    return render_template("register.html", title="Register")
 
 
 @app.route("/signup", methods=["GET", "POST"])

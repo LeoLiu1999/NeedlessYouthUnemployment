@@ -45,7 +45,7 @@ class TestEndpoints(unittest.TestCase):
         page_html = str(self.app.get('/logout').data)
         elem = 'Redirecting...'
         self.assertIn(elem, page_html)
-        
+
     def test_find(self):
         """
         Test the 'find' endpoint
@@ -61,6 +61,7 @@ class TestEndpoints(unittest.TestCase):
         page_html = str(self.app.get('/view').data)
         elem = 'Your Applications'
         self.assertIn(elem, page_html)
-        
+
+
 if __name__ == "__main__":
     unittest.main()
