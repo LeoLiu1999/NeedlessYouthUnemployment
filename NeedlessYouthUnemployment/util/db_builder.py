@@ -1,6 +1,9 @@
 import sqlite3   #enable control of an sqlite database
 import csv       #facilitates CSV I/O
 from hashlib import sha256
+import os
+f = '.'
+f=os.environ.get('PWD')
 f="data/db.db"
 
 def create_db():
