@@ -2,9 +2,9 @@ import sqlite3   #enable control of an sqlite database
 import csv       #facilitates CSV I/O
 from hashlib import sha256
 import os
-f = '.'
-f = os.environ.get('PYTHONPATH')
-f = "data/db.db"
+#f = '.'
+#f += str(os.environ.get('PYTHONPATH'))
+f = "NeedlessYouthUnemployment/data/db.db"
 
 def create_db():
     db = sqlite3.connect(f)
