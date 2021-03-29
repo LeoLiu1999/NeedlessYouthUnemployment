@@ -3,7 +3,7 @@ from flask import Flask, render_template, flash, redirect, request, session
 # import json
 # import sqlite3
 # import random
-from NeedlessYouthUnemployment.util import db_builder
+from util import db_builder
 
 app = Flask(__name__)
 app.secret_key = "super secret key lmfao"
