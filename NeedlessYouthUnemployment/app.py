@@ -66,7 +66,7 @@ def find():
 
 @app.route("/view")
 def create():
-    return render_template("applications.html", title="Your applications")
+    return render_template("view.html", title="Your applications")
 
 
 @app.route("/logout")
