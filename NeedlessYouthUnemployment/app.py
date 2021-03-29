@@ -8,17 +8,17 @@ app.secret_key = "super secret key lmfao"
 @app.route("/")
 def home():
     if ("user" not in session):
-        return render_template("index.html", selection="h1")
+        return render_template("index.html", title="Welcome", selection="h1")
     else:
-        return render_template("index.html", selection=None)
+        return render_template("index.html", title="Welcome", selection=None)
 
 
 @app.route("/login")
 def login():
     if ("user" not in session):
-        return render_template("login.html")
+        return render_template("login.html", title="Login")
     else:
-        return render_template("index.html", selection=None)
+        return render_template("index.html", title="Login", selection=None)
 
 
 @app.route("/auth", methods=["GET", "POST"])
@@ -39,7 +39,7 @@ def auth():
 
 @app.route("/register")
 def register():
-    return render_template("register.html")
+    return render_template("register.html",title="Register")
 
 
 @app.route("/signup", methods=["GET", "POST"])
@@ -58,26 +58,15 @@ def signup():
         flash('That username has already been taken!')
     return render_template('register.html')
 
-# @app.route("/create")
-# def create():
-#     if "user" not in session:
-#         return redirect("/")
-#     code = int(random.random() * 1000000)
-#     while db_builder.auth_id(code):
-#         code = int(random.random() * 1000000)
-#     db_builder.add_lobby(code, session["user"])
-
-#     return render_template("create.html", code_num = code)
-
 
 @app.route("/find")
 def find():
-    return "Clicked Find Internship"
+    return render_template("find.html", title="Find Internships")
 
 
 @app.route("/view")
 def create():
-    return "Clicked View Applications"
+    return render_template("applications.html", title="Your applications")
 
 
 @app.route("/logout")
