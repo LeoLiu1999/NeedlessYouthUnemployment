@@ -40,9 +40,7 @@ With an activated virtualenv:
 
 In the repository for this site:
 
-`cd NeedlessYouthUnemployment`
-
-`python app.py`
+`make run_local`
 
 In a browser, navigate to:
 

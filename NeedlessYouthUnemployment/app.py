@@ -1,26 +1,29 @@
-from flask import Flask, render_template, flash, redirect, url_for, request, session
-import os
-import json
-import sqlite3
-import random
-from NeedlessYouthUnemployment.util import db_builder
+from flask import Flask, render_template, flash, redirect, request, session
+# import os
+# import json
+# import sqlite3
+# import random
+from util import db_builder
 
 app = Flask(__name__)
 app.secret_key = "super secret key lmfao"
 
+
 @app.route("/")
 def home():
     if ("user" not in session):
-        return render_template("index.html", selection = "h1")
+        return render_template("index.html", selection="h1")
     else:
-        return render_template("index.html", selection = None)
+        return render_template("index.html", selection=None)
+
 
 @app.route("/login")
 def login():
     if ("user" not in session):
         return render_template("login.html")
     else:
-        return render_template("index.html", selection = None)
+        return render_template("index.html", selection=None)
+
 
 @app.route("/auth", methods=["GET", "POST"])
 def auth():
@@ -37,9 +40,11 @@ def auth():
         flash("invalid credentials!")
         return redirect("/login")
 
+
 @app.route("/register")
 def register():
     return render_template("register.html")
+
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
@@ -68,19 +73,23 @@ def signup():
 
 #     return render_template("create.html", code_num = code)
 
+
 @app.route("/find")
 def find():
     return "Clicked Find Internship"
+
 
 @app.route("/view")
 def create():
     return "Clicked View Applications"
 
+
 @app.route("/logout")
 def logout():
-	if "user" in session:
-		session.pop("user")
-	return redirect("/")
+    if "user" in session:
+        session.pop("user")
+    return redirect("/")
+
 
 if __name__ == "__main__":
     app.debug = True
