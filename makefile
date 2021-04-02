@@ -4,7 +4,7 @@ LINTER = flake8 --ignore=E501
 FORCE:
 
 tests: lint
-	cd $(PROJ_DIR); python3 test_app.py
+	python3 test_app.py
 
 run_local:
 	python3 $(PROJ_DIR)/app.py
