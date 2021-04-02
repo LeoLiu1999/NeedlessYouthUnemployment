@@ -4,7 +4,7 @@ LINTER = flake8 --ignore=E501
 FORCE:
 
 tests: lint
-	python3 test_app.py
+	cd $(PROJ_DIR); python3 test_app.py
 
 run_local:
 	python3 $(PROJ_DIR)/app.py
@@ -14,7 +14,7 @@ prod: tests
 	git push origin main
 
 lint: FORCE
-	cd $(PROJ_DIR); $(LINTER) *.py
+	cd $(PROJ_DIR); $(LINTER) app.py; $(LINTER) test_app.py
 
 dev_env: FORCE
 	pip3 install --user -r requirements.txt
