@@ -1,0 +1,36 @@
+{% extends "base2.html" %}
+
+{% block content %}
+{% if status == "logged_in" %}
+<section id="grid-logged-in">
+    <div class="box">
+        <div class="box-content">
+            Find
+        </div>
+    </div>
+    <div class="box">
+        <div class="box-content">
+            View
+        </div>
+    </div>
+    <div class="box">
+        <div class="box-content">
+            Logout
+        </div>
+    </div>
+</section>
+{% else %}
+<section id="grid-not-logged-in">
+    <div class="box">
+        <div class="box-content">
+            <button class="login-button">Login</button>
+        </div>
+    </div>
+    <div class="box">
+        <div class="box-content">
+            <button class="register-button">Register</button>
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endblock content %}
