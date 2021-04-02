@@ -3,7 +3,7 @@ This is the file containing all of the routes for the flask app.
 """
 
 
-from flask import Flask, render_template, flash, redirect, request, session, url_for
+from flask import Flask, render_template, flash, redirect, request, session, url_for # noqa: F401
 from util import db_builder
 
 app = Flask(__name__)
@@ -13,7 +13,7 @@ app.secret_key = "super secret key lmfao"
 @app.route("/")
 def home():
     """
-    The home route.  
+    The home route. 
     This will return a render template that changes depending on the login status.
     """
     if ("user" in session):
