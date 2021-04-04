@@ -289,7 +289,7 @@ main {
 
             .login-button {
                 @extend %button;
-                $login-color: #1895e9;
+                $button-color: #1895e9;
                 color: $button-color;
                 border-color: $button-color;
             
