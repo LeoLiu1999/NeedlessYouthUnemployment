@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='./css/main.css') }}">
     </head>
     <body>
-        <section id="nyu-logo">
+        <section id="nyu-logo" onclick="window.location.href='{{ url_for('home') }}';">
             <div class="box">
                 <img id="nyu-logo-header" src="{{ url_for('static', filename='./img/nyu-logo.svg') }}" alt="NYU Logo">
             </div>
