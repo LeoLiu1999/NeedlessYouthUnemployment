@@ -79,7 +79,7 @@ def find():
 
 
 @app.route("/view")
-def create():
+def view():
     return render_template("view2.html", title="Your Applications")
 
 
