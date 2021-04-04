@@ -23,12 +23,12 @@
 <section id="grid-not-logged-in">
     <div class="box">
         <div class="box-content">
-            <button class="login-button">Login</button>
+            <button class="login-button" onclick="window.location.href='{{ url_for('login') }}';">Login</button>
         </div>
     </div>
     <div class="box">
         <div class="box-content">
-            <button class="register-button">Register</button>
+            <button class="register-button" onclick="window.location.href='{{ url_for('register') }}';">Register</button>
         </div>
     </div>
 </section>

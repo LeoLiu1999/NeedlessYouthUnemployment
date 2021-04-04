@@ -1,0 +1,30 @@
+{% extends "base2.html" %}
+
+{% block content %}
+
+<section id="grid-login-form">
+    <form>
+        <div class="box">
+            <div class="box-content">
+                <input type="text" name="Username" placeholder="Username">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box-content">
+                <input type="password" name="Password" placeholder="Password">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box-content">
+                <button type="submit" class="login-submit-button">Login</button>
+            </div>
+        </div>
+        <div class="box">
+            <div class="box-content">
+                <button type="button" class="login-cancel-button" onclick="window.location.href='{{ url_for('home') }}';">Go Back</button>
+            </div>
+        </div>
+    </form>
+</section>
+
+{% endblock content %}

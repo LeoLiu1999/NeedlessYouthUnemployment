@@ -5,9 +5,14 @@ This is the file containing all of the routes for the flask app.
 
 from flask import Flask, render_template, flash, redirect, request, session, url_for  # noqa: F401
 from util import db_builder  # noqa: F401
+import os
 
 app = Flask(__name__)
-app.secret_key = "super secret key lmfao"
+
+def make_secret_key():
+    return os.urandom(32)
+
+app.secret_key = make_secret_key()
 
 
 @app.route("/")
@@ -22,12 +27,12 @@ def home():
         return render_template("index2.html", title="Welcome", status="not_logged_in")
 
 
-# @app.route("/login")
-# def login():
-#     if ("user" not in session):
-#         return render_template("login.html", title="Login")
-#     else:
-#         return render_template("index.html", title="Login", selection=None)
+@app.route("/login")
+def login():
+    if ("user" not in session):
+        return render_template("login2.html", title="Login")
+    else:
+        return render_template("index2.html", title="Welcome", status="logged_in")
 
 
 # @app.route("/auth", methods=["GET", "POST"])
@@ -46,9 +51,9 @@ def home():
 #         return redirect("/login")
 
 
-# @app.route("/register")
-# def register():
-#     return render_template("register.html", title="Register")
+@app.route("/register")
+def register():
+    return render_template("register2.html", title="Register")
 
 
 # @app.route("/signup", methods=["GET", "POST"])
