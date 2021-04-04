@@ -1,1 +1,1 @@
-web: gunicorn NeedlessYouthUnemployment.app:app
+web: gunicorn NeedlessYouthUnemployment.app_new:app
