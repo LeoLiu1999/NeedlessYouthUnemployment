@@ -5,17 +5,17 @@
 <section id="grid-logged-in">
     <div class="box">
         <div class="box-content">
-            Find
+            <button class="find-button" onclick="window.location.href='{{ url_for('find') }}';">Find</button>
         </div>
     </div>
     <div class="box">
         <div class="box-content">
-            View
+            <button class="view-button" onclick="window.location.href='{{ url_for('view') }}';">View</button>
         </div>
     </div>
     <div class="box">
         <div class="box-content">
-            Logout
+            <button class="logout-button" onclick="window.location.href='{{ url_for('logout') }}';">Logout</button>
         </div>
     </div>
 </section>
