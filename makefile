@@ -7,7 +7,7 @@ tests: lint
 	cd $(PROJ_DIR); python3 test_app.py
 
 run_local:
-	python3 $(PROJ_DIR)/app.py
+	python3 $(PROJ_DIR)/app_new.py
 
 prod: tests
 	git commit -a

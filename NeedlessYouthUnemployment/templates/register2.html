@@ -3,30 +3,43 @@
 {% block content %}
 
 <section id="grid-register-form">
-    <form>
+    <form action="{{ url_for('signup') }}" method="POST">
         <div class="box">
             <div class="box-content">
-                <input type="text" name="Username" placeholder="Username">
+                <div class="form-group">
+                    <input type="text" name="Username" placeholder="Username">
+                    <label for="Username" class="form-label">Username</label>
+                </div>
             </div>
         </div>
         <div class="box">
             <div class="box-content">
-                <input type="password" name="Password" placeholder="Password">
+                <div class="form-group">
+                    <input type="password" name="Password" placeholder="Password">
+                    <label for="Password" class="form-label">Password</label>
+                </div>
             </div>
         </div>
         <div class="box">
             <div class="box-content">
-                <input type="password" name="Confirm-Password" placeholder="Confirm Password">
+                <div class="form-group">
+                    <input type="password" name="Confirm-Password" placeholder="Confirm Password">
+                    <label for="Confirm-Password" class="form-label">Confirm Password</label>
+                </div>
             </div>
         </div>
         <div class="box">
             <div class="box-content">
-                <button type="submit" class="register-submit-button">Register</button>
+                <div class="form-button">
+                    <button type="submit" class="register-submit-button">Register</button>
+                </div>
             </div>
         </div>
         <div class="box">
             <div class="box-content">
-                <button type="button" class="register-cancel-button" onclick="window.location.href='{{ url_for('home') }}';">Go Back</button>
+                <div class="form-button">
+                    <button type="button" class="register-cancel-button" onclick="window.location.href='{{ url_for('home') }}';">Go Back</button>
+                </div>
             </div>
         </div>
     </form>

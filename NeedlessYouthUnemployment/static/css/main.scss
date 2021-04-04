@@ -1,6 +1,8 @@
 // Variables
 $nyu-purple: #a61eff;
+$nyu-purple-2: #7801c7;
 $content-bg: #221b25;
+$field-purple: #65506e;
 
 body {
     margin: 0;
@@ -54,18 +56,66 @@ body {
     }
 }
 
+%form-group {
+    position: relative;
+    padding: 0.7vw 0 0;
+    padding-top: 0.9vw;
+    // margin-top: 0.5vw;
+    height: 5vw;
+}
+
 %input {
     width: 100%;
     height: 100%;
     border: 0;
-    // border-radius: 15px;
     outline: 0;
-    padding: 0.7vw 0;
-    border-bottom: 2px solid $nyu-purple;
+    border-bottom: 2px solid $field-purple;
     font-family: 'Roboto', sans-serif;
     background: transparent;
     color: white;
-    font-size: 2.5vw;
+    font-size: 3.5vw;
+
+    &::placeholder {
+        color: transparent;
+    }
+
+    &:placeholder-shown ~ .form-label {
+        font-size: 4.5vw;
+        cursor: text;
+        color: $field-purple;
+    }
+
+    &:focus {
+        padding-bottom: 0.3vw;
+        border-width: 3px;
+        border-image: linear-gradient(to right, $nyu-purple, $nyu-purple-2);
+        border-image-slice: 1;
+
+        ~ .form-label {
+            position: relative;
+            top: -5.5vw;
+            display: block;
+            transition: 0.2s;
+            font-size: 1.5vw;
+            color: $nyu-purple;
+            font-weight: 600;
+            pointer-events: none;
+        }
+    }
+}
+
+%form-label {
+    position: relative;
+    display: block;
+    top: -5.5vw;
+    transition: 0.2s;
+    font-size: 1.5vw;
+    color: $field-purple;
+    pointer-events: none;
+}
+
+%form-button {
+    margin-top: 0.65vw;
 }
 
 #nyu-logo {
@@ -137,8 +187,7 @@ main {
 
     section {
         width: 100%;
-        max-width: 45vw;   
-        max-height: 420px;
+        max-width: 45vw;
         background: $content-bg;
         justify-items: center;
     }
@@ -194,7 +243,7 @@ main {
             height: 100%;
             justify-content: center;
             align-items: center;
-            
+
             .login-button {
                 @extend %button;
                 color: #1895e9;
@@ -222,6 +271,8 @@ main {
 }
 
 #grid-login-form {
+    border-radius: 15px;
+
     form {
         @extend %grid;
         grid-template-columns: repeat(2, 1fr);
@@ -255,9 +306,21 @@ main {
                 height: 100%;
                 justify-content: center;
                 align-items: center;
+                
+                .form-group {
+                    @extend %form-group;
 
-                input {
-                    @extend %input;
+                    input {
+                        @extend %input;
+                    }
+    
+                    label {
+                        @extend %form-label;
+                    }
+                }
+
+                .form-button {
+                    @extend %form-button;
                 }
     
                 .login-submit-button {
@@ -287,6 +350,8 @@ main {
 }
 
 #grid-register-form {
+    border-radius: 15px;
+
     form {
         @extend %grid;
         grid-template-columns: repeat(2, 1fr);
@@ -326,8 +391,20 @@ main {
                 justify-content: center;
                 align-items: center;
 
-                input {
-                    @extend %input;
+                .form-group {
+                    @extend %form-group;
+
+                    input {
+                        @extend %input;
+                    }
+
+                    label {
+                        @extend %form-label;
+                    }
+                }
+
+                .form-button {
+                    @extend %form-button;
                 }
     
                 .register-submit-button {

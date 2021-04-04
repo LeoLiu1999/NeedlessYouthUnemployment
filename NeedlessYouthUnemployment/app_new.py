@@ -35,20 +35,20 @@ def login():
         return render_template("index2.html", title="Welcome", status="logged_in")
 
 
-# @app.route("/auth", methods=["GET", "POST"])
-# def auth():
-#     if "user" in session:
-#         return redirect("/")
+@app.route("/auth", methods=["GET", "POST"])
+def auth():
+    if "user" in session:
+        return redirect("/")
 
-#     form = request.form
-#     username = form["User"]
-#     password = form["Pass"]
-#     if db_builder.auth_user(username, password):
-#         session["user"] = username
-#         return redirect("/")
-#     else:
-#         flash("invalid credentials!")
-#         return redirect("/login")
+    form = request.form
+    username = form["Username"]
+    password = form["Password"]
+    if db_builder.auth_user(username, password):
+        session["user"] = username
+        return redirect("/")
+    else:
+        flash("invalid credentials!")
+        return redirect("/login")
 
 
 @app.route("/register")
@@ -56,38 +56,38 @@ def register():
     return render_template("register2.html", title="Register")
 
 
-# @app.route("/signup", methods=["GET", "POST"])
-# def signup():
-#     form = request.form
-#     username = form['User']
-#     password = form['Pass']
-#     confpass = form['confPass']
-#     if password != confpass:
-#         flash('The 2 passwords that you entered do not match!')
-#         return render_template('register.html')
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+    form = request.form
+    username = form['Username']
+    password = form['Password']
+    confpass = form['Confirm-Password']
+    if password != confpass:
+        flash('The 2 passwords that you entered do not match!')
+        return redirect("/register")
 
-#     if db_builder.add_user(username, password):
-#         return redirect("/")
-#     else:
-#         flash('That username has already been taken!')
-#     return render_template('register.html')
-
-
-# @app.route("/find")
-# def find():
-#     return render_template("find.html", title="Find Internships")
+    if db_builder.add_user(username, password):
+        return redirect("/")
+    else:
+        flash('That username has already been taken!')
+    return redirect("/register")
 
 
-# @app.route("/view")
-# def create():
-#     return render_template("view.html", title="Your applications")
+@app.route("/find")
+def find():
+    return render_template("find2.html", title="Find Internships")
 
 
-# @app.route("/logout")
-# def logout():
-#     if "user" in session:
-#         session.pop("user")
-#     return redirect("/")
+@app.route("/view")
+def create():
+    return render_template("view2.html", title="Your Applications")
+
+
+@app.route("/logout")
+def logout():
+    if "user" in session:
+        session.pop("user")
+    return redirect("/")
 
 
 if __name__ == "__main__":
