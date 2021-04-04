@@ -32,7 +32,6 @@ body {
 
 #grid-find .box:nth-child(1) .box-content .go-back-button, #grid-view .box:nth-child(1) .box-content .go-back-button, #grid-register-form form .box .box-content .register-cancel-button, #grid-register-form form .box .box-content .register-submit-button, #grid-login-form form .box .box-content .login-cancel-button, #grid-login-form form .box .box-content .login-submit-button, #grid-not-logged-in .box .box-content .register-button, #grid-not-logged-in .box .box-content .login-button, #grid-logged-in .box .box-content .logout-button, #grid-logged-in .box .box-content .view-button, #grid-logged-in .box .box-content .find-button {
   display: flex;
-  max-width: 20vw;
   width: 100%;
   height: 5vw;
   justify-content: center;
