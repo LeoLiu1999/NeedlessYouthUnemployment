@@ -18,7 +18,7 @@ https://needless-youth-unemployment.herokuapp.com/
 
 ### 2. Prepare for launch
 
-#### Virtualenv
+#### Virtualenv (Optional)
 
 We recommend you use a virtual environment to install dependencies for this site.
 
@@ -34,7 +34,7 @@ To activate virtualenv in a Unix-based system:
 
 With an activated virtualenv:
 
-`pip install Flask`
+`make dev_env`
 
 ### 3. Launch
 
@@ -45,3 +45,11 @@ In the repository for this site:
 In a browser, navigate to:
 
 `localhost:5000`
+
+## Documentations
+
+### [Project Proposal](https://github.com/LeoLiu1999/NeedlessYouthUnemployment/blob/main/Design%20Documents/Project%20Proposal.pdf)
+
+### [Software Project Management Plan](https://github.com/LeoLiu1999/NeedlessYouthUnemployment/blob/main/Design%20Documents/Software%20Project%20Management%20Plan.pdf)
+
+### [System Requirements Specification](https://github.com/LeoLiu1999/NeedlessYouthUnemployment/blob/main/Design%20Documents/System%20Requirements%20Specification.pdf)
