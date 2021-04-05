@@ -1,18 +1,18 @@
 import unittest
-import app
+import app_new
 
 
 class TestEndpoints(unittest.TestCase):
     def setUp(self):
-        self.app = app.app.test_client()
+        self.app = app_new.app.test_client()
 
     def test_home(self):
         """
         Tests the 'home' endpoint
         """
         page_html = str(self.app.get('/').data)
-        login_elem = '<button onclick="window.location.href=\\\'/login\\\'" class="btn w3-center w3-animate-left"> Login </button>'
-        create_acc_elem = '<button onclick="window.location.href=\\\'/register\\\'" class="btn w3-center w3-animate-left"> Create Account </button>'
+        login_elem = 'Login'
+        create_acc_elem = 'Register'
         self.assertIn(login_elem, page_html)
         self.assertIn(create_acc_elem, page_html)
 
@@ -21,8 +21,8 @@ class TestEndpoints(unittest.TestCase):
         Tests the 'login' endpoint
         """
         page_html = str(self.app.get('/login').data)
-        username_elem = '<label><strong>Username:</strong></label>\\n            <input type="text" name="User" placeholder="Username">'
-        password_elem = '<label><strong>Password:</strong></label>\\n            <input type="password" name="Pass" placeholder="Password">'
+        username_elem = 'Username'
+        password_elem = 'Password'
         self.assertIn(username_elem, page_html)
         self.assertIn(password_elem, page_html)
 
@@ -31,9 +31,9 @@ class TestEndpoints(unittest.TestCase):
         Tests the 'register' endpoint
         """
         page_html = str(self.app.get('/register').data)
-        username_elem = '<label><strong>Username:</strong></label>\\n            <input type="text" name="User" placeholder="Username">'
-        password_elem = '<label><strong>Password:</strong></label>\\n            <input type="password" name="Pass" placeholder="Password">'
-        confirm_elem = '<label><strong>Confirm Password:</strong></label>\\n            <input type="password" name="confPass" placeholder="Password">'
+        username_elem = 'Username'
+        password_elem = 'Password'
+        confirm_elem = 'Confirm Password'
         self.assertIn(username_elem, page_html)
         self.assertIn(password_elem, page_html)
         self.assertIn(confirm_elem, page_html)
