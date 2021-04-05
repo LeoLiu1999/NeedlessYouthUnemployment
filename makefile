@@ -4,6 +4,7 @@ LINTER = flake8 --ignore=E501
 FORCE:
 
 tests: lint
+	# cd $(PROJ_DIR); nosetests --exe --verbose --with-coverage --cover-package=$(pwd)
 	cd $(PROJ_DIR); python3 test_app.py
 
 run_local:
