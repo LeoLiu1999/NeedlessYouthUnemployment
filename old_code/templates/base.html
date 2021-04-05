@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>{{title}} | NeedlessYouthUnemployment</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <style>
+            h1{
+                border: solid medium black;
+                display: inline;
+                padding: 10px;
+                border-radius: 12px;
+                font-family: Header;
+                font-weight: bold;
+            }
+
+            .btn {
+                background: #a8a8a8;
+                background-image: -webkit-linear-gradient(top, #a8a8a8, #ffffff);
+                background-image: -moz-linear-gradient(top, #a8a8a8, #ffffff);
+                background-image: -ms-linear-gradient(top, #a8a8a8, #ffffff);
+                background-image: -o-linear-gradient(top, #a8a8a8, #ffffff);
+                background-image: linear-gradient(to bottom, #a8a8a8, #ffffff);
+                -webkit-border-radius: 15;
+                -moz-border-radius: 15;
+                border-radius: 15px;
+                font-family: Lucida Sans Unicode;
+                color: #000000;
+                font-size: 25px;
+                padding: 10px 20px 10px 20px;
+                text-decoration: none;
+                border-color: black;
+            }
+
+            .btn:hover {
+                background: #ffffff;
+                background-image: -webkit-linear-gradient(top, #ffffff, #a8a8a8);
+                background-image: -moz-linear-gradient(top, #ffffff, #a8a8a8);
+                background-image: -ms-linear-gradient(top, #ffffff, #a8a8a8);
+                background-image: -o-linear-gradient(top, #ffffff, #a8a8a8);
+                background-image: linear-gradient(to bottom, #ffffff, #a8a8a8);
+                text-decoration: none;
+            }
+
+            @font-face {
+                font-family: Header;
+                src: url("../static/css/TOMATOES Personal Use.ttf");
+            }
+        </style>
+    </head>
+
+    <body>
+		<center><img src="static/img/temp_logo.png" alt="NeedlessYouthUnemployment Logo"></center>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <center><div id="flash-container" style='color:red'><h4><b>{{ message }}</b></h4></div></center>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <br><br>
+        {% block content %}
+        howdy
+        {% endblock content %}
+    </body>
+</html>

@@ -27,10 +27,10 @@ def home():
              Rendered template that changes depending on the login status.
     """
     if ("user" in session):
-        return render_template("index2.html",
+        return render_template("index.html",
                                title="Welcome", status="logged_in")
     else:
-        return render_template("index2.html",
+        return render_template("index.html",
                                title="Welcome", status="not_logged_in")
 
 
@@ -43,9 +43,9 @@ def login():
              Rendered template for logging in
     """
     if ("user" not in session):
-        return render_template("login2.html", title="Login")
+        return render_template("login.html", title="Login")
     else:
-        return render_template("index2.html",
+        return render_template("index.html",
                                title="Welcome", status="logged_in")
 
 
@@ -81,7 +81,7 @@ def register():
         Returns:
              Rendered template with a form to register an account.
     """
-    return render_template("register2.html", title="Register")
+    return render_template("register.html", title="Register")
 
 
 @app.route("/signup", methods=["GET", "POST"])
@@ -117,7 +117,7 @@ def find():
         Returns:
              Rendered template with open internship opportunities.
     """
-    return render_template("find2.html", title="Find Internships")
+    return render_template("find.html", title="Find Internships")
 
 
 @app.route("/view")
@@ -128,7 +128,7 @@ def view():
         Returns:
              Rendered template with the user's internship applications.
     """
-    return render_template("view2.html", title="Your Applications")
+    return render_template("view.html", title="Your Applications")
 
 
 @app.route("/logout")
