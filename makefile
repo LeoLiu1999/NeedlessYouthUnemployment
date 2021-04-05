@@ -16,8 +16,11 @@ prod: tests
 lint: FORCE
 	cd $(PROJ_DIR); $(LINTER) app.py; $(LINTER) test_app.py
 
-dev_env: FORCE
+usr_env:
 	pip3 install --user -r requirements.txt
+
+dev_env: FORCE
+	pip3 install --user -r dev_requirements.txt
 
 heroku:
 	# install heroku:
@@ -28,3 +31,6 @@ heroku:
 	heroku git:remote -a needless-youth-unemployment
 	heroku config:set PYTHONPATH="/app"
 	heroku config:set HOME="/app"
+
+docs:
+	cd $(PROJ_DIR); pydoc3 -p 5001 *.py
