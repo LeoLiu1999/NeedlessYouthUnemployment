@@ -1,18 +1,20 @@
 PROJ_DIR = NeedlessYouthUnemployment
-LINTER = flake8 --ignore=E501
+LINTER = flake8
+COVER_PKG = $(shell pwd)
 
 FORCE:
 
 tests: lint
-	# cd $(PROJ_DIR); nosetests --exe --verbose --with-coverage --cover-package=$(pwd)
-	cd $(PROJ_DIR); python3 test_app.py
+	cd $(PROJ_DIR); rm .coverage; python3 -m "nose" --exe --verbose --with-coverage --cover-package=$(COVER_PKG)
+	#rm .coverage; python3 -m "nose" --exe --verbose --with-coverage --cover-package=$(COVER_PKG)/$(PROJ_DIR)
 
 run_local:
-	python3 $(PROJ_DIR)/app_new.py
+	python3 $(PROJ_DIR)/app.py
 
 prod: tests
+	git checkout dev
 	git commit -a
-	git push origin main
+	git push origin dev
 
 lint: FORCE
 	cd $(PROJ_DIR); $(LINTER) app.py; $(LINTER) test_app.py

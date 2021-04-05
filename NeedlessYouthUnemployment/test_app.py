@@ -1,10 +1,11 @@
 import unittest
-import app_new
+import app
+# from util import db_builder
 
 
 class TestEndpoints(unittest.TestCase):
     def setUp(self):
-        self.app = app_new.app.test_client()
+        self.app = app.app.test_client()
 
     def test_home(self):
         """
@@ -61,6 +62,18 @@ class TestEndpoints(unittest.TestCase):
         page_html = str(self.app.get('/view').data)
         elem = 'Your Applications'
         self.assertIn(elem, page_html)
+
+    # def test_add_user(self):
+    #     """
+    #     Tests the add_user function in db_builder
+    #     """
+    #     self.assertFalse(db_builder.add_user('a', 'a'))
+
+    # def test_auth_user(self):
+    #     """
+    #     Tests the add_user function in db_builder
+    #     """
+    #     self.assertTrue(db_builder.auth_user('a', 'a'))
 
 
 if __name__ == "__main__":
