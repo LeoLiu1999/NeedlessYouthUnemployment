@@ -22,15 +22,15 @@
                 <h3>Unemployment</h3>
             </div>
         </section>
-		
-		{% with messages = get_flashed_messages() %}
+
+        {% with messages = get_flashed_messages() %}
         {% if messages %}
         {% for message in messages %}
         <center><div id="flash-container" style='color:red'><h4><b>{{ message }}</b></h4></div></center>
         {% endfor %}
         {% endif %}
         {% endwith %}
-		
+
         <main>
             {% block content %}
             If you see this text, jinja failed.
