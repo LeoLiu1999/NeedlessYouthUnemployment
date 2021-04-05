@@ -64,10 +64,10 @@ heroku: Target to create a Heroku app if one does not already exist.
 
 ### Documents
 
-* ![Rough sketch of Database layout](Design\ Documents/DPDBUML.PNG)
+* ![Rough sketch of Database layout](Design%20Documents/DPDBUML.PNG)
 
-* [Project Proposal](Design\ Documents/Project\ Proposal.pdf)
+* [Project Proposal](Design%20Documents/Project%20Proposal.pdf)
 
-* [Project Management Plan](Design\ Documents/Software\ Project\ Management\ Plan.pdf)
+* [Project Management Plan](Design%20Documents/Software%20Project%20Management%20Plan.pdf)
 
-* [System Requirements Specification](Design\ Documents/System\ Requirements\ Specification.pdf)
+* [System Requirements Specification](Design%20Documents/System%20Requirements%20Specification.pdf)
