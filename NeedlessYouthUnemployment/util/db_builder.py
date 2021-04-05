@@ -7,12 +7,18 @@ import os
 f = "NeedlessYouthUnemployment/data/db.db"
 
 def create_db():
+    """
+    Initializes a table in database.
+    """
     db = sqlite3.connect(f)
     c = db.cursor()
     command = "CREATE TABLE IF NOT EXISTS users( username TEXT, password TEXT)"
     c.execute(command)
 
 def add_user(username, password):
+    """
+    Attempts to add a username and password pair to the database.
+    """
     db = sqlite3.connect(f)
     c = db.cursor()
     command = "SELECT username FROM users WHERE username = \'" + username + "\'" #checks if username already exists
@@ -30,13 +36,17 @@ def add_user(username, password):
         db.close()
         return False
 
-def auth_user(username, password): #note: this does not differentiate between wrong password and non-existing username
+def auth_user(username, password):
+    """
+    Authenticates a username and password pair.
+    Note that this does not differentiate between wrong password and non-existing username
+    """
     db = sqlite3.connect(f)
     c = db.cursor()
     entered_password = sha256(password.encode('utf-8')).hexdigest()
     command = "SELECT password FROM users WHERE username = \'" + username + "\'"
-    actual_password = c.execute(command).fetchone()[0]
-    return (entered_password == actual_password)
+    actual_password = c.execute(command).fetchone()
+    return (actual_password[0] != None and entered_password == actual_password[0])
 
 if __name__ == "__main__":
     f = "../data/db.db"

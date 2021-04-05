@@ -19,7 +19,9 @@ app.secret_key = make_secret_key()
 def home():
     """
     The /home route.
-    This will return a rendered template that changes depending on the login status.
+    
+        Returns:
+             Rendered template that changes depending on the login status.
     """
     if ("user" in session):
         return render_template("index2.html", title="Welcome", status="logged_in")
@@ -31,7 +33,9 @@ def home():
 def login():
     """
     The /login route.
-    This will return a rendered template that lets the user log in if they are not logged in already.
+    
+        Returns:
+             Rendered template that lets the user log in if they are not logged in already.
     """
     if ("user" not in session):
         return render_template("login2.html", title="Login")
@@ -44,9 +48,10 @@ def auth():
     """
     The /auth route.
     This will authenticate the user, and:
-    On successful authentication, redirect to home page.
-    On failed login, redirect to /login with message.
     This will NOT return a rendered template.
+    
+        Returns:
+             Redirect to / or /login as appropriate
     """
     if "user" in session:
         return redirect("/")
@@ -66,7 +71,9 @@ def auth():
 def register():
     """
     The /register route.
-    This will return a returned template with a form to register an account.
+    
+        Returns:
+             Rendered template with a form to register an account.
     """
     return render_template("register2.html", title="Register")
 
@@ -75,10 +82,11 @@ def register():
 def signup():
     """
     The /signup route.
-    This will create an account for the user, and:
-    On successful creation, redirect to home page.
-    On failed login, redirect to /register with an appropriate message.
+    This will attempt to create an account for the user.
     This will NOT return a rendered template.
+    
+        Returns:
+             Redirect to / or /register as appropriate
     """
     form = request.form
     username = form['Username']
@@ -99,7 +107,9 @@ def signup():
 def find():
     """
     The /view route.
-    This will return a returned template with open internship opportunities.
+    
+        Returns:
+             Rendered template with open internship opportunities.
     """
     return render_template("find2.html", title="Find Internships")
 
@@ -108,7 +118,9 @@ def find():
 def view():
     """
     The /view route.
-    This will return a returned template with the user's internship applications.
+    
+        Returns:
+             Rendered template with the user's internship applications.
     """
     return render_template("view2.html", title="Your Applications")
 
@@ -117,8 +129,10 @@ def view():
 def logout():
     """
     The /logout route.
-    This will log the user out.
-    This will NOT return a rendered template.
+    This will log the user out and redirect them to the homepage.
+    
+        Returns:
+             Redirect to /
     """
     if "user" in session:
         session.pop("user")

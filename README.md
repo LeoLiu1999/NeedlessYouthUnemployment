@@ -26,6 +26,7 @@ git clone git@github.com:LeoLiu1999/NeedlessYouthUnemployment.git
 git clone https://github.com/LeoLiu1999/NeedlessYouthUnemployment.git
 ```
 2. Recommended: Use a virtual environment to install dependencies for the site (Optional).
+
 To learn how to install virtual environment go [here](https://virtualenv.pypa.io/en/latest/installation.html) and to learn how to create a virtual environment go [here](https://virtualenv.pypa.io/en/latest/user_guide.html).
 After creating a virtual environment, activate it (on a unix-based system) by running
 ```sh
