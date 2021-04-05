@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<center>
+    <h1 class="w3-center w3-animate-left">Find Internships</h1>
+
+    <br><br><br><br><br>
+	
+	{% if messages %}
+    {% for internship in internships %}
+	{{ internship }}
+	{% endfor %}
+	{% endif %}
+	
+</center>
+
+{% endblock content %}
