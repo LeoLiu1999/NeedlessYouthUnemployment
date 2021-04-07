@@ -5,7 +5,7 @@ COVER_PKG = $(shell pwd)
 FORCE:
 
 tests: lint
-	cd $(PROJ_DIR); rm .coverage; python3 -m "nose" --exe --verbose --with-coverage --cover-package=$(COVER_PKG)
+	cd $(PROJ_DIR); rm -f .coverage; python3 -m "nose" --exe --verbose --with-coverage --cover-package=$(COVER_PKG)
 	#rm .coverage; python3 -m "nose" --exe --verbose --with-coverage --cover-package=$(COVER_PKG)/$(PROJ_DIR)
 
 run_local:
