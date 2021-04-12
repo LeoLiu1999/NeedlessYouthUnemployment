@@ -49,17 +49,17 @@ make run_local
 
 ### Make Targets
 
-tests: Target to run the [tests file](NeedlessYouthUnemployment/test_app.py).
+`tests`: Target to run the [tests file](NeedlessYouthUnemployment/test_app.py).
 
-run_local: Target to launch the program locally at https://localhost:5000
+`run_local`: Target to launch the program locally at https://localhost:5000
 
-prod: Target to push all changes to Github. Travis listens to the **main** branch and deploys to the [Heroku app](https://needless-youth-unemployment.herokuapp.com/) if all tests pass.
+`prod`: Target to push all changes to Github. Travis listens to the **main** branch and deploys to the [Heroku app](https://needless-youth-unemployment.herokuapp.com/) if all tests pass.
 
-lint: Target to run the linter, Flake8, to ensure that the code is clean.
+`lint`: Target to run the linter, Flake8, to ensure that the code is clean.
 
-dev_env: Target to set up the development environment by installing requirements.
+`dev_env`: Target to set up the development environment by installing requirements.
 
-heroku: Target to create a Heroku app if one does not already exist.
+`heroku`: Target to create a Heroku app if one does not already exist.
 
 ---
 
