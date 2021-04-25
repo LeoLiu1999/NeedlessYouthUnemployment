@@ -11,11 +11,7 @@ import os
 app = Flask(__name__)
 
 
-def make_secret_key():
-    return os.urandom(32)
-
-
-app.secret_key = make_secret_key()
+app.secret_key = "random string"
 
 
 @app.route("/")
