@@ -1,10 +1,9 @@
 PROJ_DIR = NeedlessYouthUnemployment
 COVER_PKG = $(shell pwd)
-LINTER = flake8
 
 FORCE:
 
-tests: lint
+tests: FORCE
 	cd $(PROJ_DIR); make tests
 
 run_local:
@@ -14,9 +13,6 @@ prod: tests
 	git checkout dev
 	git commit -a
 	git push origin dev
-
-lint: FORCE
-	cd $(PROJ_DIR); $(LINTER) app.py; $(LINTER) test_app.py; $(LINTER) util/db_builder.py
 
 usr_env:
 	pip3 install --user -r requirements.txt
