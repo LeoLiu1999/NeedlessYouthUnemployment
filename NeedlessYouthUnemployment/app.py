@@ -6,7 +6,6 @@ This is the file containing all of the routes for the flask app.
 from flask import Flask, render_template, flash,\
                   redirect, request, session
 from util import db_builder  # noqa: F401
-import os
 
 app = Flask(__name__)
 

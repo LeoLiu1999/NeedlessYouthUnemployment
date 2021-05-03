@@ -1,12 +1,10 @@
 PROJ_DIR = NeedlessYouthUnemployment
-LINTER = flake8
 COVER_PKG = $(shell pwd)
 
 FORCE:
 
-tests: lint
-	cd $(PROJ_DIR); rm -f .coverage; python3 -m "nose" --exe --verbose --with-coverage --cover-package=$(COVER_PKG)
-	#rm .coverage; python3 -m "nose" --exe --verbose --with-coverage --cover-package=$(COVER_PKG)/$(PROJ_DIR)
+tests: FORCE
+	cd $(PROJ_DIR); make tests
 
 run_local:
 	python3 $(PROJ_DIR)/app.py
@@ -15,9 +13,6 @@ prod: tests
 	git checkout dev
 	git commit -a
 	git push origin dev
-
-lint: FORCE
-	cd $(PROJ_DIR); $(LINTER) app.py; $(LINTER) test_app.py
 
 usr_env:
 	pip3 install --user -r requirements.txt
