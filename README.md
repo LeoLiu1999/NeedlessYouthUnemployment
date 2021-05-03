@@ -4,7 +4,7 @@
 
 ### Project Description
 
-Needless Youth Unemployment is a 2021 Spring Senior Design project by Leo Liu, Rihui Zheng, Md Abedin, and Kyle Lin.
+Needless Youth Unemployment is a 2021 Spring Senior Design project by Leo Liu, Rihui Zheng, Md Abedin, and Kyle Lin. It is a software to help find and organize internship and job applications.
 
 Deployment can be found [here](https://needless-youth-unemployment.herokuapp.com/).
 

@@ -2,3 +2,4 @@
 pydocs
 nose
 coverage
+flake8

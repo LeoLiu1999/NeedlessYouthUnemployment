@@ -3,6 +3,14 @@
 {% block content %}
 
 <section id="grid-view">
+    {% if applications %}
+    {% for application in applications %}
+    {{ application }}
+    {% endfor %}
+    {% else %}
+    No applications to display!
+	(Work in progress)
+    {% endif %}
     <div class="box">
         <div class="box-content">
             <button type="button" class="go-back-button" onclick="window.location.href='{{ url_for('home') }}';">Go Back</button>
