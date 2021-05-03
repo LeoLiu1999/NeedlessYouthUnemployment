@@ -3,6 +3,14 @@
 {% block content %}
 
 <section id="grid-find">
+    {% if opportunities %}
+    {% for opportunity in opportunities %}
+    {{ opportunity }}
+    {% endfor %}
+    {% else %}
+    No opportunities to display!
+    (Work in progress)
+    {% endif %}
     <div class="box">
         <div class="box-content">
             <button type="button" class="go-back-button" onclick="window.location.href='{{ url_for('home') }}';">Go Back</button>
