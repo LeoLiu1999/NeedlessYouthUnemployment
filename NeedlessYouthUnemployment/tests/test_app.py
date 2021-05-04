@@ -64,6 +64,17 @@ class TestEndpoints(unittest.TestCase):
         elem = 'Redirecting...'
         self.assertIn(elem, page_html)
 
+    def test_auth_bad_creds(self):
+        """
+        Tests the 'auth' endpoint with bad credentials
+        """
+        response = self.app.post('/auth',
+                                 data=dict(Username="a",
+                                           Password="ba"),
+                                 follow_redirects=True)
+
+        assert b'invalid' in response.data
+
     def test_register(self):
         """
         Tests the 'register' endpoint
