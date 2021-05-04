@@ -2,4 +2,6 @@
 show_missing = True
 
 [run]
-omit = *tests*
+omit =
+    */tests/*
+    */__init__.py
