@@ -3,3 +3,4 @@ pydocs
 nose
 coverage
 flake8
+setuptools
