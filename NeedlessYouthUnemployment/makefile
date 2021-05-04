@@ -7,10 +7,10 @@ FORCE:
 lint: FORCE
 	$(LINTER) app.py
 	$(LINTER) Tests/test_app.py
-	$(LINTER) util/db_builder.py
+	# $(LINTER) util/db_builder.py
 
 tests: lint
 	rm -f .coverage
-	python3 -m "nose" --exe --verbose --with-coverage --cover-package=$(COVER_PKG)
-	#rm .coverage; python3 -m "nose" --exe --verbose --with-coverage --cover-package=$(COVER_PKG)
+	python3 -m "nose" ${NOSE_FLAGS}
+	# rm .coverage; python3 -m "nose" --exe --verbose --with-coverage --cover-package=$(COVER_PKG)
 

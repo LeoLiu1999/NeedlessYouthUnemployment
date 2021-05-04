@@ -1,7 +1,8 @@
-from unittest import TestCase
+import unittest
 import NeedlessYouthUnemployment.NeedlessYouthUnemployment.app as app
 
-class TestEndpoints(TestCase):
+
+class TestEndpoints(unittest.TestCase):
     def setUp(self):
         self.app = app.app.test_client()
 
@@ -72,6 +73,7 @@ class TestEndpoints(TestCase):
     #     Tests the add_user function in db_builder
     #     """
     #     self.assertTrue(db_builder.auth_user('a', 'a'))
+
 
 if __name__ == "__main__":
     unittest.main()
