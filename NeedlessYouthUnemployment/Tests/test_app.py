@@ -1,5 +1,5 @@
 from unittest import TestCase
-import NeedlessYouthUnemployment.NeedlessYouthUnemployment.app
+import NeedlessYouthUnemployment.NeedlessYouthUnemployment.app as app
 
 class TestEndpoints(TestCase):
     def setUp(self):
