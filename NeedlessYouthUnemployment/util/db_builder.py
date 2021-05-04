@@ -49,6 +49,32 @@ def add_user(username, password):
         return False
 
 
+def remove_user(username, password):
+    """
+    Attempts to remove a username and password pair from
+    the database
+    """
+    db = sqlite3.connect(f)
+    c = db.cursor()
+    # Checks if username exists
+    command = "SELECT username,password FROM users WHERE username = \'" \
+        + username + "\'"
+    result = c.execute(command)
+    if result.fetchone() is not None:
+        encrypt = sha256(password.encode('utf-8')).hexdigest()
+        result = c.execute(command)
+        if encrypt == result.fetchone()[1]:
+            command = "DELETE FROM users WHERE username = \'" \
+                + username + "\'"
+            c.execute(command)
+
+            db.commit()
+            db.close()
+            return True
+    db.close()
+    return False
+
+
 def auth_user(username, password):
     """
     Authenticates a username and password pair.

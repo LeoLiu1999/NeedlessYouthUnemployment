@@ -21,15 +21,47 @@ class TestDatabase(unittest.TestCase):
         """
         self.assertTrue(db_builder.create_db())
 
-    def test_add_user(self):
+    def test_add_user_already_exists(self):
         """
         Tests the add_user function in db_builder
+        with a user that already exists
         """
         self.assertFalse(db_builder.add_user('a', 'a'))
-
-    def test_auth_user(self):
+    
+    def test_add_user_not_exists(self):
         """
         Tests the add_user function in db_builder
+        with a user that does not exist
+        """
+        self.assertTrue(db_builder.add_user('TEST_USER_A', 'a'))
+        db_builder.remove_user('TEST_USER_A', 'a')
+
+    def test_remove_user_already_exists(self):
+        """
+        Tests the remove_user function in db_builder
+        with a user that already exists
+        """
+        db_builder.add_user('TEST_USER_A', 'a')
+        self.assertTrue(db_builder.remove_user('TEST_USER_A', 'a'))
+    
+    def test_remove_user_not_exists(self):
+        """
+        Tests the remove_user function in db_builder
+        with a user that does not exist
+        """
+        self.assertFalse(db_builder.remove_user('TEST_USER_A', 'a'))
+
+    def test_auth_user_not_exists(self):
+        """
+        Tests the add_user function in db_builder
+        with a user that does not exist
+        """
+        self.assertFalse(db_builder.auth_user('a', 'b'))
+
+    def test_auth_user_exists(self):
+        """
+        Tests the add_user function in db_builder
+        with a user that exists
         """
         self.assertTrue(db_builder.auth_user('a', 'a'))
 
