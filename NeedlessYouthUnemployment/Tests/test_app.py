@@ -1,5 +1,5 @@
 import unittest
-from NeedlessYouthUnemployment.NeedlessYouthUnemployment import app
+import app
 
 
 class TestEndpoints(unittest.TestCase):
