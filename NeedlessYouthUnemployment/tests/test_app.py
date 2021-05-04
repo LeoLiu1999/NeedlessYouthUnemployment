@@ -4,6 +4,7 @@ import app
 
 class TestEndpoints(unittest.TestCase):
     def setUp(self):
+        app.secret_key = "exdee"
         self.app = app.app.test_client()
 
     def test_home_not_logged_in(self):
@@ -133,6 +134,7 @@ class TestEndpoints(unittest.TestCase):
         Tests the 'logout' endpoint
         """
         page_html = str(self.app.get('/logout').data)
+
         elem = 'Redirecting...'
         self.assertIn(elem, page_html)
 
