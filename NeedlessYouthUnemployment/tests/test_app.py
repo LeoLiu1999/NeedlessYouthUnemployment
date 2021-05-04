@@ -99,6 +99,19 @@ class TestEndpoints(unittest.TestCase):
 
         assert b'2 passwords that you entered' in response.data
 
+    def test_signup_already_exists(self):
+        """
+        Tests the 'signup' endpoint with an account
+        that already exists
+        """
+        response = self.app.post('/signup',
+                                 data=dict(Username="a",
+                                           Password="a",
+                                           ConfirmPassword="a"),
+                                 follow_redirects=True)
+
+        assert b'already been taken!' in response.data
+
     def test_find(self):
         """
         Test the 'find' endpoint
