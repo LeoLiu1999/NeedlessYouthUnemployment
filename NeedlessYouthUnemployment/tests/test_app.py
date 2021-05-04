@@ -52,6 +52,18 @@ class TestEndpoints(unittest.TestCase):
         self.assertIn(view_elem, page_html)
         self.assertIn(logout_elem, page_html)
 
+    def test_auth_logged_in(self):
+        """
+        Tests the 'auth' endpoint while logged in
+        """
+        self.app.post('/auth',
+                      data=dict(Username="a", Password="a"),
+                      follow_redirects=True)
+
+        page_html = str(self.app.get('/auth').data)
+        elem = 'Redirecting...'
+        self.assertIn(elem, page_html)
+
     def test_register(self):
         """
         Tests the 'register' endpoint
