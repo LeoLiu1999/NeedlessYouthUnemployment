@@ -1,11 +1,15 @@
 language: python
 
+python:
+  - '3.8.5'
+
 install:
   - pip install -r ./requirements.txt
   - pip install -r ./dev_requirements.txt
   
 env:
-  PYTHONPATH=$(pwd)
+  global:
+    - PYTHONPATH=/home/travis/build/LeoLiu1999/NeedlessYouthUnemployment
 
 script:
   - make tests

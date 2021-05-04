@@ -1,13 +1,12 @@
 LINTER = flake8
-PROJ_DIR = NeedlessYouthUnemployment
 COVER_PKG = $(shell pwd)
-NOSE_FLAGS = -w Tests --with-coverage --cover-package NeedlessYouthUnemployment
+NOSE_FLAGS = --with-coverage --cover-package=.
 
 FORCE:
 
 lint: FORCE
 	$(LINTER) app.py;
-	$(LINTER) Tests/test_app.py;
+	$(LINTER) tests/test_app.py;
 	$(LINTER) util/db_builder.py
 
 tests: lint
