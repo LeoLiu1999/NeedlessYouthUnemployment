@@ -1,7 +1,7 @@
 LINTER = flake8
 PROJ_DIR = NeedlessYouthUnemployment
 COVER_PKG = $(shell pwd)
-NOSE_FLAGS = -w $(PROJ_DIR)/Tests --with-coverage --cover-package=.
+NOSE_FLAGS = -w Tests --with-coverage --cover-package=.
 
 FORCE:
 
