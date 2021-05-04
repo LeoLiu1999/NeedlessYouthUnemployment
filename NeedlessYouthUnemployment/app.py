@@ -92,7 +92,7 @@ def signup():
     form = request.form
     username = form['Username']
     password = form['Password']
-    confpass = form['Confirm-Password']
+    confpass = form['ConfirmPassword']
     if password != confpass:
         flash('The 2 passwords that you entered do not match!')
         return redirect("/register")

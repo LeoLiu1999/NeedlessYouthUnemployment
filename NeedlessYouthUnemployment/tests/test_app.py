@@ -6,9 +6,9 @@ class TestEndpoints(unittest.TestCase):
     def setUp(self):
         self.app = app.app.test_client()
 
-    def test_home(self):
+    def test_home_not_logged_in(self):
         """
-        Tests the 'home' endpoint
+        Tests the 'home' endpoint while not logged in
         """
         page_html = str(self.app.get('/').data)
         login_elem = 'Login'
@@ -16,15 +16,41 @@ class TestEndpoints(unittest.TestCase):
         self.assertIn(login_elem, page_html)
         self.assertIn(create_acc_elem, page_html)
 
-    def test_login(self):
+    def test_home_logged_in(self):
         """
-        Tests the 'login' endpoint
+        Tests the 'home' endpoint while logged in
+        """
+        self.app.post('/auth', data=dict(Username="a", Password="a"))
+        page_html = str(self.app.get('/').data)
+        find_elem = 'Find'
+        view_elem = 'View'
+        logout_elem = 'Logout'
+        self.assertIn(find_elem, page_html)
+        self.assertIn(view_elem, page_html)
+        self.assertIn(logout_elem, page_html)
+
+    def test_login_not_logged_in(self):
+        """
+        Tests the 'login' endpoint while not logged in
         """
         page_html = str(self.app.get('/login').data)
         username_elem = 'Username'
         password_elem = 'Password'
         self.assertIn(username_elem, page_html)
         self.assertIn(password_elem, page_html)
+
+    def test_login_logged_in(self):
+        """
+        Tests the 'login' endpoint while logged in
+        """
+        self.app.post('/auth', data=dict(Username="a", Password="a"))
+        page_html = str(self.app.get('/login').data)
+        find_elem = 'Find'
+        view_elem = 'View'
+        logout_elem = 'Logout'
+        self.assertIn(find_elem, page_html)
+        self.assertIn(view_elem, page_html)
+        self.assertIn(logout_elem, page_html)
 
     def test_register(self):
         """
@@ -37,6 +63,18 @@ class TestEndpoints(unittest.TestCase):
         self.assertIn(username_elem, page_html)
         self.assertIn(password_elem, page_html)
         self.assertIn(confirm_elem, page_html)
+
+    def test_signup_no_match_pw(self):
+        """
+        Tests the 'signup' endpoint
+        """
+        response = self.app.post('/signup',
+                                 data=dict(Username="newa",
+                                           Password="newa",
+                                           ConfirmPassword="newb"),
+                                 follow_redirects=True)
+
+        assert b'2 passwords that you entered' in response.data
 
     def test_find(self):
         """
@@ -61,18 +99,6 @@ class TestEndpoints(unittest.TestCase):
         page_html = str(self.app.get('/logout').data)
         elem = 'Redirecting...'
         self.assertIn(elem, page_html)
-
-    # def test_add_user(self):
-    #     """
-    #     Tests the add_user function in db_builder
-    #     """
-    #     self.assertFalse(db_builder.add_user('a', 'a'))
-
-    # def test_auth_user(self):
-    #     """
-    #     Tests the add_user function in db_builder
-    #     """
-    #     self.assertTrue(db_builder.auth_user('a', 'a'))
 
 
 if __name__ == "__main__":

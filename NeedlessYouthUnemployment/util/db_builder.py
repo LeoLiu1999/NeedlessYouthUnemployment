@@ -1,10 +1,15 @@
 # enable control of an sqlite database
 import sqlite3
+import os
 # facilitates CSV I/O
 # import csv
 from hashlib import sha256
 
-f = "NeedlessYouthUnemployment/data/db.db"
+path = os.path.abspath(os.path.join(
+    os.path.dirname(__file__),
+    '..',
+    'data'))
+f = os.path.join(path, 'db.db')
 
 
 def create_db():
@@ -15,6 +20,7 @@ def create_db():
     c = db.cursor()
     command = "CREATE TABLE IF NOT EXISTS users( username TEXT, password TEXT)"
     c.execute(command)
+    return True
 
 
 def add_user(username, password):
@@ -60,7 +66,7 @@ def auth_user(username, password):
 
 
 if __name__ == "__main__":
-    f = "../data/db.db"
+    # f = "../data/db.db"
     create_db()
     # add_user("leo", "wat")
     # auth_user("leo", "wat")
