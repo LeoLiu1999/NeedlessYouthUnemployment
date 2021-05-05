@@ -1,5 +1,6 @@
 import unittest
 import app
+from util import db_builder
 
 
 class TestEndpoints(unittest.TestCase):
@@ -120,6 +121,19 @@ class TestEndpoints(unittest.TestCase):
         page_html = str(self.app.get('/find').data)
         elem = 'Find Internships'
         self.assertIn(elem, page_html)
+
+    def test_add(self):
+        """
+        Tests the 'add' endpoint
+        """
+        self.app.post('/auth', data=dict(Username="a", Password="a"))
+        page_html = str(self.app.post('/add',
+                                      data=dict(Link="a", Company="b",
+                                                Position="c", Date="d",
+                                                Salary="None")).data)
+        elem = 'Redirecting...'
+        self.assertIn(elem, page_html)
+        db_builder.del_user_app('a', 'a')
 
     def test_view(self):
         """
