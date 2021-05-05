@@ -118,7 +118,7 @@ def auth_user(username, password):
             and entered_password == actual_password[0])
 
 
-def add_pos(link, company, date, pos, sal=None):
+def add_pos(link, company, pos, date, sal=None):
     """
     Adds a new position to the database
     Param: All the information needed for a position
@@ -184,9 +184,10 @@ def add_user_app(username, link, company=None, pos=None, date=None, sal=None):
         db.close()
         return False
 
-    # c.execute("SELECT * FROM positions WHERE link = \'" + link + "\'")
-    # pos = c.fetchall()
-    # link, company, date, pos, sal = pos[0]
+    if (company is None):
+        c.execute("SELECT * FROM positions WHERE link = \'" + link + "\'")
+        pos = c.fetchall()
+        link, company, date, pos, sal = pos[0]
 
     cmd = "INSERT INTO applications VALUES " +\
           "('{}','{}','{}','{}','{}','{}','{}')"
