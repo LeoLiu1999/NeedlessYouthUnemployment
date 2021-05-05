@@ -486,32 +486,53 @@ main {
 #grid-find, #grid-view {
     @extend %grid;
     grid-template-columns: 1fr;
-    grid-auto-rows: 1fr;
+    // grid-auto-rows: 1fr;
 
     .box {
         @extend %box;
 
-        &:nth-child(1) {
+        .box-content {
             grid-column: 1;
             grid-row: 1/2;
 
-            .box-content {
-                width: 100%;
-                height: 100%;
-                justify-content: center;
-                align-items: center;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
 
-                .go-back-button {
-                    @extend %button;
-                    $button-color: #8c00ff;
-                    color: $button-color;
-                    border-color: $button-color;
+            .go-back-button {
+                @extend %button;
+                $button-color: #8c00ff;
+                color: $button-color;
+                border-color: $button-color;
 
-                    &:hover {
-                        color: black;
-                        background-color: $button-color;
-                    }
+                &:hover {
+                    color: black;
+                    background-color: $button-color;
                 }
+            }
+        }
+    }
+
+    table {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 0 3em 0;
+        padding: 0;
+
+        tr, td {
+            color: white;
+            box-sizing: border-box;
+            flex-grow: 1;
+            width: 100%;
+            padding: 1.8em 1.9em;
+            overflow: hidden;
+            list-style: none;
+            border: solid white 1px;
+            background: #171717;
+            text-align: center;
+
+            a {
+                color: $nyu-purple;
             }
         }
     }

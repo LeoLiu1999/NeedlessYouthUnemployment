@@ -4,15 +4,28 @@
 
 <section id="grid-find">
     {% if opportunities %}
-    {% for opportunity in opportunities %}
-	<div>
-		{% for elem in opportunity %}
-		<div>
-		{{ elem[0] }}: {{ elem[1] }}
-		</div>
-		{% endfor %}
-	</div>
-    {% endfor %}
+    <table>
+        <tr>
+            <th>Link</th>
+            <th>Company</th>
+            <th>Position</th>
+            <th>Start Date</th>
+            <th>Salary</th>
+        </tr>
+        {% for opportunity in opportunities %}
+        <tr class="internships">
+            {% for n in range(5) %}
+            <td class="internship">
+                {% if n == 0 %}
+                <a href='{{ opportunity[n][1] }}'>Click Me</a>
+                {% else %}
+                {{ opportunity[n][1] }}
+                {% endif %}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
     {% else %}
     No opportunities to display!
     (Work in progress)

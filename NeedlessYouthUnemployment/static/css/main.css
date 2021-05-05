@@ -30,7 +30,7 @@ body {
   height: 100%;
 }
 
-#grid-find .box:nth-child(1) .box-content .go-back-button, #grid-view .box:nth-child(1) .box-content .go-back-button, #grid-register-form form .box .box-content .register-cancel-button, #grid-register-form form .box .box-content .register-submit-button, #grid-login-form form .box .box-content .login-cancel-button, #grid-login-form form .box .box-content .login-submit-button, #grid-not-logged-in .box .box-content .register-button, #grid-not-logged-in .box .box-content .login-button, #grid-logged-in .box .box-content .logout-button, #grid-logged-in .box .box-content .view-button, #grid-logged-in .box .box-content .find-button {
+#grid-find .box .box-content .go-back-button, #grid-view .box .box-content .go-back-button, #grid-register-form form .box .box-content .register-cancel-button, #grid-register-form form .box .box-content .register-submit-button, #grid-login-form form .box .box-content .login-cancel-button, #grid-login-form form .box .box-content .login-submit-button, #grid-not-logged-in .box .box-content .register-button, #grid-not-logged-in .box .box-content .login-button, #grid-logged-in .box .box-content .logout-button, #grid-logged-in .box .box-content .view-button, #grid-logged-in .box .box-content .find-button {
   display: flex;
   width: 100%;
   height: 5vw;
@@ -46,7 +46,7 @@ body {
   outline: none;
   margin: 0;
 }
-#grid-find .box:nth-child(1) .box-content .go-back-button:active, #grid-view .box:nth-child(1) .box-content .go-back-button:active, #grid-register-form form .box .box-content .register-cancel-button:active, #grid-register-form form .box .box-content .register-submit-button:active, #grid-login-form form .box .box-content .login-cancel-button:active, #grid-login-form form .box .box-content .login-submit-button:active, #grid-not-logged-in .box .box-content .register-button:active, #grid-not-logged-in .box .box-content .login-button:active, #grid-logged-in .box .box-content .logout-button:active, #grid-logged-in .box .box-content .view-button:active, #grid-logged-in .box .box-content .find-button:active {
+#grid-find .box .box-content .go-back-button:active, #grid-view .box .box-content .go-back-button:active, #grid-register-form form .box .box-content .register-cancel-button:active, #grid-register-form form .box .box-content .register-submit-button:active, #grid-login-form form .box .box-content .login-cancel-button:active, #grid-login-form form .box .box-content .login-submit-button:active, #grid-not-logged-in .box .box-content .register-button:active, #grid-not-logged-in .box .box-content .login-button:active, #grid-logged-in .box .box-content .logout-button:active, #grid-logged-in .box .box-content .view-button:active, #grid-logged-in .box .box-content .find-button:active {
   border-color: black;
 }
 
@@ -353,25 +353,42 @@ main .not-logged-in, main .logged-in {
 
 #grid-find, #grid-view {
   grid-template-columns: 1fr;
-  grid-auto-rows: 1fr;
 }
-#grid-find .box:nth-child(1), #grid-view .box:nth-child(1) {
+#grid-find .box .box-content, #grid-view .box .box-content {
   grid-column: 1;
   grid-row: 1/2;
-}
-#grid-find .box:nth-child(1) .box-content, #grid-view .box:nth-child(1) .box-content {
   width: 100%;
-  height: 100%;
   justify-content: center;
   align-items: center;
 }
-#grid-find .box:nth-child(1) .box-content .go-back-button, #grid-view .box:nth-child(1) .box-content .go-back-button {
+#grid-find .box .box-content .go-back-button, #grid-view .box .box-content .go-back-button {
   color: #8c00ff;
   border-color: #8c00ff;
 }
-#grid-find .box:nth-child(1) .box-content .go-back-button:hover, #grid-view .box:nth-child(1) .box-content .go-back-button:hover {
+#grid-find .box .box-content .go-back-button:hover, #grid-view .box .box-content .go-back-button:hover {
   color: black;
   background-color: #8c00ff;
+}
+#grid-find table, #grid-view table {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 3em 0;
+  padding: 0;
+}
+#grid-find table tr, #grid-find table td, #grid-view table tr, #grid-view table td {
+  color: white;
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+  padding: 1.8em 1.9em;
+  overflow: hidden;
+  list-style: none;
+  border: solid white 1px;
+  background: #171717;
+  text-align: center;
+}
+#grid-find table tr a, #grid-find table td a, #grid-view table tr a, #grid-view table td a {
+  color: #a61eff;
 }
 
 footer {
