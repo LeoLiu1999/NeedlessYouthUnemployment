@@ -5,11 +5,17 @@
 <section id="grid-view">
     {% if applications %}
     {% for application in applications %}
-    {{ application }}
+	<div>
+		{% for elem in application %}
+		<div>
+		{{ elem[0] }}: {{ elem[1] }}
+		</div>
+		{% endfor %}
+	</div>
     {% endfor %}
     {% else %}
     No applications to display!
-	(Work in progress)
+    (Work in progress)
     {% endif %}
     <div class="box">
         <div class="box-content">

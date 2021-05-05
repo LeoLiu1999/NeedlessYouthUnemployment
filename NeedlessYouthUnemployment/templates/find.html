@@ -5,7 +5,13 @@
 <section id="grid-find">
     {% if opportunities %}
     {% for opportunity in opportunities %}
-    {{ opportunity }}
+	<div>
+		{% for elem in opportunity %}
+		<div>
+		{{ elem[0] }}: {{ elem[1] }}
+		</div>
+		{% endfor %}
+	</div>
     {% endfor %}
     {% else %}
     No opportunities to display!

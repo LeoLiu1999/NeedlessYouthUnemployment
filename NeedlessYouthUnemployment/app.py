@@ -112,7 +112,29 @@ def find():
         Returns:
              Rendered template with open internship opportunities.
     """
-    return render_template("find.html", title="Find Internships")
+    opportunities_raw = db_builder.get_all_pos()
+    if opportunities_raw == []:
+        opportunities = None
+    else:
+        opportunities = []
+        for pos in opportunities_raw:
+            opportunity = []
+            opportunity.append(["Link", pos[0]])
+            opportunity.append(["company", pos[1]])
+            opportunity.append(["date", pos[2]])
+            opportunity.append(["position", pos[3]])
+            opportunity.append(["salary", "${:.2f}".format(float(app[5]))])
+            opportunities.append(opportunity)
+
+    # opportunities = [[["Link", "https://fakelink.com/bogus.html"],
+    #                   ["company", "totally real company"],
+    #                   ["date", "Jan 1, 2022"],
+    #                   ["pos", "Lorem ipsum generator"],
+    #                   ["salary", "$123456"]]]
+
+    return render_template("find.html",
+                           title="Find Internships",
+                           opportunities=opportunities)
 
 
 @app.route("/view")
@@ -123,7 +145,34 @@ def view():
         Returns:
              Rendered template with the user's internship applications.
     """
-    return render_template("view.html", title="Your Applications")
+
+    applications_raw = db_builder.get_user_apps(session["user"])
+    if applications_raw == []:
+        applications = None
+    else:
+        applications = []
+        for app in applications_raw:
+            application = []
+            application.append(["link", app[1]])
+            application.append(["company", app[2]])
+            application.append(["position", app[3]])
+            application.append(["date", app[4]])
+            application.append(["salary", "${:.2f}".format(float(app[5]))])
+            application.append(["status", app[6]])
+            applications.append(application)
+
+    # applications = [[["Link", "fake link"],
+    #                  ["company", "dummy company"],
+    #                  ["position", "Lorem ipsum"],
+    #                  ["date", "Jan 1, 2000"]],
+    #                 [["Link", "fake link2"],
+    #                  ["company", "dummy company2"],
+    #                  ["position", "Lorem ipsum2"],
+    #                  ["date", "Jan 1, 2001"]]]
+
+    return render_template("view.html",
+                           title="Your Applications",
+                           applications=applications)
 
 
 @app.route("/logout")
