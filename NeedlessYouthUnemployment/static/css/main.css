@@ -353,6 +353,7 @@ main .not-logged-in, main .logged-in {
 
 #grid-find, #grid-view {
   grid-template-columns: 1fr;
+  color: white;
 }
 #grid-find .box .box-content, #grid-view .box .box-content {
   grid-column: 1;
