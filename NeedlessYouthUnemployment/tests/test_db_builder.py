@@ -65,5 +65,44 @@ class TestDatabase(unittest.TestCase):
         """
         self.assertTrue(db_builder.auth_user('a', 'a'))
 
+    def test_add_pos(self):
+        """
+        Tests the add_pos function in db_builder
+        """
+        self.assertTrue(db_builder.add_pos('hi','a','b','c',1))
+
+    def test_get_all_pos(self):
+        """
+        Tests the get_all_pos function in db_builder
+        """
+        pos_lst = db_builder.get_all_pos()
+        self.assertTrue(len(pos_lst) >= 0)
+
+    def test_del_pos(self):
+        """
+        Tests the del_pos function in db_builder
+        """
+        self.assertTrue(db_builder.del_pos('hi'))
+
+    def test_add_user_app(self):
+        """
+        Tests the add_user_app function in db_builder
+        """
+        self.assertTrue(db_builder.add_user_app('a', 'hi', 'a', 'b', 'c', 1))
+        self.assertFalse(db_builder.add_user_app('a', 'hi', 'a', 'b', 'c', 1))
+
+    def test_get_user_apps(self):
+        """
+        Tests the get_user_apps function in db_builder
+        """
+        app_lst = db_builder.get_user_apps('a')
+        self.assertTrue(len(app_lst) >= 0)
+
+    def test_del_user_app(self):
+        """
+        Tests the del_user_app function in db_builder
+        """
+        self.assertTrue(db_builder.del_user_app('a', 'hi'))
+
 if __name__ == '__main__':
     unittest.main()
