@@ -125,9 +125,11 @@ class TestEndpoints(unittest.TestCase):
         """
         Test the 'view' endpoint
         """
+        self.app.post('/auth', data=dict(Username="a", Password="a"))
         page_html = str(self.app.get('/view').data)
         elem = 'Your Applications'
         self.assertIn(elem, page_html)
+        self.app.get('/logout')
 
     def test_logout(self):
         """

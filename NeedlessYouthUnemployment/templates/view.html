@@ -4,12 +4,32 @@
 
 <section id="grid-view">
     {% if applications %}
-    {% for application in applications %}
-    {{ application }}
-    {% endfor %}
+    <table>
+        <tr>
+            <th>Link</th>
+            <th>Company</th>
+            <th>Position</th>
+            <th>Start Date</th>
+            <th>Salary</th>
+            <th>Status</th>
+        </tr>
+        {% for application in applications %}
+        <tr class="applications">
+            {% for n in range(6) %}
+            <td class="internship">
+                {% if n == 0 %}
+                <a href='{{ application[n][1] }}'>Click Me</a>
+                {% else %}
+                {{ application[n][1] }}
+                {% endif %}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
     {% else %}
     No applications to display!
-	(Work in progress)
+    (Work in progress)
     {% endif %}
     <div class="box">
         <div class="box-content">

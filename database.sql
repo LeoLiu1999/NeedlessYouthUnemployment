@@ -39,3 +39,4 @@ create table IF NOT EXISTS Applications
     foreign key (UserID) references Users (UserID),
     foreign key (CompID, PosName) references Position (CompID, PosName)
 );
+

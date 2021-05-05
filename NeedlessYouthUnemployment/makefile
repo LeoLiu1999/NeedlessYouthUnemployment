@@ -1,6 +1,6 @@
 LINTER = flake8
 COVER_PKG = $(shell pwd)
-NOSE_FLAGS = --with-coverage --cover-package=.
+NOSE_FLAGS = --with-coverage --verbose --exe --cover-package=.
 
 FORCE:
 
