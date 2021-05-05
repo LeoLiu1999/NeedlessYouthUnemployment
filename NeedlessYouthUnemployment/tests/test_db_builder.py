@@ -92,6 +92,22 @@ class TestDatabase(unittest.TestCase):
         """
         Tests the add_user_app function in db_builder
         """
+        db_builder.add_pos('hi','a','b','c',1)
+        self.assertTrue(db_builder.add_user_app('a', 'hi'))
+        self.assertFalse(db_builder.add_user_app('a', 'hi'))
+        db_builder.del_user_app('a', 'hi')
+        db_builder.del_pos('hi')
+
+    def test_add_user_app_no_position(self):
+        """
+        Tests the add_user_app function in db_builder
+        """
+        self.assertFalse(db_builder.add_user_app('a', 'hi'))
+
+    def test_custom_add_user_app(self):
+        """
+        Tests the add_user_app function in db_builder
+        """
         self.assertTrue(db_builder.add_user_app('a', 'hi', 'a', 'b', 'c', 1))
         self.assertFalse(db_builder.add_user_app('a', 'hi', 'a', 'b', 'c', 1))
         db_builder.del_user_app('a', 'hi')

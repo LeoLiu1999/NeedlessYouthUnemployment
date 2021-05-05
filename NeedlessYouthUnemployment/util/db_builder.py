@@ -170,7 +170,8 @@ def add_user_app(username, link, company=None, pos=None, date=None, sal=None):
     """
     Deletes an application from the database
     Param: Username, position link
-    Return: True if successful, False if app already exists
+    Return: True if successful,
+            False if app already exists or position doesn't exist
     """
     db = sqlite3.connect(f)
     c = db.cursor()
@@ -184,10 +185,13 @@ def add_user_app(username, link, company=None, pos=None, date=None, sal=None):
         db.close()
         return False
 
-    # if (company is None):
-    #     c.execute("SELECT * FROM positions WHERE link = \'" + link + "\'")
-    #     pos = c.fetchall()
-    #     link, company, pos, date, sal = pos[0]
+    if (company is None):
+        c.execute("SELECT * FROM positions WHERE link = \'" + link + "\'")
+        pos = c.fetchall()
+        if (len(pos)):
+            link, company, pos, date, sal = pos[0]
+        else:
+            return False
 
     cmd = "INSERT INTO applications VALUES " +\
           "('{}','{}','{}','{}','{}','{}','{}')"
