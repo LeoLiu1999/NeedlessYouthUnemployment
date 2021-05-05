@@ -486,7 +486,7 @@ main {
 #grid-find, #grid-view {
     @extend %grid;
     grid-template-columns: 1fr;
-    // grid-auto-rows: 1fr;
+    color: white;
 
     .box {
         @extend %box;
@@ -532,7 +532,31 @@ main {
             text-align: center;
 
             a {
-                color: $nyu-purple;
+                @extend %button;
+                font-size: 0.8vw;
+                height: 2.3vw;
+                $button-color: $nyu-purple;
+                color: $button-color;
+                border-color: $button-color;
+
+                &:hover {
+                    color: black;
+                    background-color: $button-color;
+                }
+            }
+
+            button {
+                @extend %button;
+                font-size: 0.8vw;
+                height: 2.3vw;
+                $button-color: white;
+                color: $button-color;
+                border-color: $button-color;
+
+                &:hover {
+                    color: black;
+                    background-color: $button-color;
+                }
             }
         }
     }

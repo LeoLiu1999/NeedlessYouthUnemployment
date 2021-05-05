@@ -30,7 +30,7 @@ body {
   height: 100%;
 }
 
-#grid-find .box .box-content .go-back-button, #grid-view .box .box-content .go-back-button, #grid-register-form form .box .box-content .register-cancel-button, #grid-register-form form .box .box-content .register-submit-button, #grid-login-form form .box .box-content .login-cancel-button, #grid-login-form form .box .box-content .login-submit-button, #grid-not-logged-in .box .box-content .register-button, #grid-not-logged-in .box .box-content .login-button, #grid-logged-in .box .box-content .logout-button, #grid-logged-in .box .box-content .view-button, #grid-logged-in .box .box-content .find-button {
+#grid-find table tr button, #grid-find table td button, #grid-view table tr button, #grid-view table td button, #grid-find table tr a, #grid-find table td a, #grid-view table tr a, #grid-view table td a, #grid-find .box .box-content .go-back-button, #grid-view .box .box-content .go-back-button, #grid-register-form form .box .box-content .register-cancel-button, #grid-register-form form .box .box-content .register-submit-button, #grid-login-form form .box .box-content .login-cancel-button, #grid-login-form form .box .box-content .login-submit-button, #grid-not-logged-in .box .box-content .register-button, #grid-not-logged-in .box .box-content .login-button, #grid-logged-in .box .box-content .logout-button, #grid-logged-in .box .box-content .view-button, #grid-logged-in .box .box-content .find-button {
   display: flex;
   width: 100%;
   height: 5vw;
@@ -46,7 +46,7 @@ body {
   outline: none;
   margin: 0;
 }
-#grid-find .box .box-content .go-back-button:active, #grid-view .box .box-content .go-back-button:active, #grid-register-form form .box .box-content .register-cancel-button:active, #grid-register-form form .box .box-content .register-submit-button:active, #grid-login-form form .box .box-content .login-cancel-button:active, #grid-login-form form .box .box-content .login-submit-button:active, #grid-not-logged-in .box .box-content .register-button:active, #grid-not-logged-in .box .box-content .login-button:active, #grid-logged-in .box .box-content .logout-button:active, #grid-logged-in .box .box-content .view-button:active, #grid-logged-in .box .box-content .find-button:active {
+#grid-find table tr button:active, #grid-find table td button:active, #grid-view table tr button:active, #grid-view table td button:active, #grid-find table tr a:active, #grid-find table td a:active, #grid-view table tr a:active, #grid-view table td a:active, #grid-find .box .box-content .go-back-button:active, #grid-view .box .box-content .go-back-button:active, #grid-register-form form .box .box-content .register-cancel-button:active, #grid-register-form form .box .box-content .register-submit-button:active, #grid-login-form form .box .box-content .login-cancel-button:active, #grid-login-form form .box .box-content .login-submit-button:active, #grid-not-logged-in .box .box-content .register-button:active, #grid-not-logged-in .box .box-content .login-button:active, #grid-logged-in .box .box-content .logout-button:active, #grid-logged-in .box .box-content .view-button:active, #grid-logged-in .box .box-content .find-button:active {
   border-color: black;
 }
 
@@ -353,6 +353,7 @@ main .not-logged-in, main .logged-in {
 
 #grid-find, #grid-view {
   grid-template-columns: 1fr;
+  color: white;
 }
 #grid-find .box .box-content, #grid-view .box .box-content {
   grid-column: 1;
@@ -388,7 +389,24 @@ main .not-logged-in, main .logged-in {
   text-align: center;
 }
 #grid-find table tr a, #grid-find table td a, #grid-view table tr a, #grid-view table td a {
+  font-size: 0.8vw;
+  height: 2.3vw;
   color: #a61eff;
+  border-color: #a61eff;
+}
+#grid-find table tr a:hover, #grid-find table td a:hover, #grid-view table tr a:hover, #grid-view table td a:hover {
+  color: black;
+  background-color: #a61eff;
+}
+#grid-find table tr button, #grid-find table td button, #grid-view table tr button, #grid-view table td button {
+  font-size: 0.8vw;
+  height: 2.3vw;
+  color: white;
+  border-color: white;
+}
+#grid-find table tr button:hover, #grid-find table td button:hover, #grid-view table tr button:hover, #grid-view table td button:hover {
+  color: black;
+  background-color: white;
 }
 
 footer {
