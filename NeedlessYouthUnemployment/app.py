@@ -149,6 +149,8 @@ def view():
         Returns:
              Rendered template with the user's internship applications.
     """
+    if "user" not in session:
+        return redirect("/")
 
     applications_raw = db_builder.get_user_apps(session["user"])
     if applications_raw == []:
