@@ -23,6 +23,14 @@
                 {% endif %}
             </td>
             {% endfor %}
+            {% if logged_in %}
+            <form action="/add" method="post" id="{{ opportunity[0] }}">
+                {% for elem in opportunity %}
+                <input type="hidden" name="{{ elem[0] }}" value="{{ elem[1] }}">
+                {% endfor %}
+            </form>
+            <button type="submit" form="{{ opportunity[0] }}" value="Apply" class="apply-submit-button">Apply</button>
+            {% endif %}
         </tr>
         {% endfor %}
     </table>

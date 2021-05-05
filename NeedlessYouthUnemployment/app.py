@@ -112,6 +112,11 @@ def find():
         Returns:
              Rendered template with open internship opportunities.
     """
+    if "user" in session:
+        logged_in = True
+    else:
+        logged_in = False
+
     opportunities_raw = db_builder.get_all_pos()
     if opportunities_raw == []:
         opportunities = None
@@ -138,7 +143,35 @@ def find():
 
     return render_template("find.html",
                            title="Find Internships",
-                           opportunities=opportunities)
+                           opportunities=opportunities,
+                           logged_in=logged_in)
+
+
+@app.route("/add", methods=["GET", "POST"])
+def add():
+    """
+    The /add route.
+    Adds an internship opportunity to user
+
+        Returns:
+            Redirect to /view
+    """
+    form = request.form
+
+    if "user" not in session:
+        return redirect("/view")
+
+    username = session["user"]
+    link = form["Link"]
+    company = form["Company"]
+    position = form["Position"]
+    date = form["Date"]
+    salary = form["Salary"]
+
+    db_builder.add_user_app(username, link, company,
+                            position, date, salary)
+
+    return redirect("/view")
 
 
 @app.route("/view")
@@ -163,11 +196,11 @@ def view():
             application.append(["Company", app_raw[2]])
             application.append(["Position", app_raw[3]])
             application.append(["Date", app_raw[4]])
-            if (app_raw[5] == "None"):
-                application.append(["Salary", "N/A"])
-            else:
-                application.append(["Salary", "${:.2f}"
-                                   .format(float(app_raw[5]))])
+            application.append(["Salary", app_raw[5]])
+
+
+
+
             application.append(["Status", app_raw[6]])
             applications.append(application)
 
