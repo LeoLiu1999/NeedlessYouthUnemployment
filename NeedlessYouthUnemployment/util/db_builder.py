@@ -114,7 +114,7 @@ def auth_user(username, password):
     command = "SELECT password FROM users WHERE username = \'" \
         + username + "\'"
     actual_password = c.execute(command).fetchone()
-    return (actual_password[0] is not None
+    return (actual_password is not None
             and entered_password == actual_password[0])
 
 
