@@ -34,13 +34,14 @@ def create_db():
         PRIMARY KEY(link)
     )""")
 
+    c.execute("DROP TABLE applications")
     c.execute("""CREATE TABLE IF NOT EXISTS applications(
         user TEXT,
         link TEXT,
         company_name TEXT,
         pos_name TEXT,
         apply_by TEXT,
-        salary REAL,
+        salary TEXT,
         status TEXT,
         PRIMARY KEY(user, link)
     )""")
@@ -184,10 +185,10 @@ def add_user_app(username, link, company=None, pos=None, date=None, sal=None):
         db.close()
         return False
 
-    if (company is None):
-        c.execute("SELECT * FROM positions WHERE link = \'" + link + "\'")
-        pos = c.fetchall()
-        link, company, date, pos, sal = pos[0]
+    # if (company is None):
+    #     c.execute("SELECT * FROM positions WHERE link = \'" + link + "\'")
+    #     pos = c.fetchall()
+    #     link, company, pos, date, sal = pos[0]
 
     cmd = "INSERT INTO applications VALUES " +\
           "('{}','{}','{}','{}','{}','{}','{}')"
