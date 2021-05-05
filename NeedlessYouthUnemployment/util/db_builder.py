@@ -34,7 +34,6 @@ def create_db():
         PRIMARY KEY(link)
     )""")
 
-    c.execute("DROP TABLE applications")
     c.execute("""CREATE TABLE IF NOT EXISTS applications(
         user TEXT,
         link TEXT,

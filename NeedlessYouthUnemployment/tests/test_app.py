@@ -129,6 +129,7 @@ class TestEndpoints(unittest.TestCase):
         page_html = str(self.app.get('/view').data)
         elem = 'Your Applications'
         self.assertIn(elem, page_html)
+        self.app.get('/logout')
 
     def test_logout(self):
         """
