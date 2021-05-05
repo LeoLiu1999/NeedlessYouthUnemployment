@@ -11,10 +11,11 @@
             <th>Position</th>
             <th>Start Date</th>
             <th>Salary</th>
+            <th>Status</th>
         </tr>
         {% for application in applications %}
         <tr class="applications">
-            {% for n in range(5) %}
+            {% for n in range(6) %}
             <td class="internship">
                 {% if n == 0 %}
                 <a href='{{ application[n][1] }}'>Click Me</a>
