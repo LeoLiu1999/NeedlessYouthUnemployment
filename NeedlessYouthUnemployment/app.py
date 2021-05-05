@@ -117,16 +117,17 @@ def find():
         opportunities = None
     else:
         opportunities = []
-        for pos in opportunities_raw:
+        for pos_raw in opportunities_raw:
             opportunity = []
-            opportunity.append(["Link", pos[0]])
-            opportunity.append(["Company", pos[1]])
-            opportunity.append(["Date", pos[2]])
-            opportunity.append(["Position", pos[3]])
-            if (app[5] == "None"):
-                application.append(["Salary", "N/A"])
+            opportunity.append(["Link", pos_raw[0]])
+            opportunity.append(["Company", pos_raw[1]])
+            opportunity.append(["Position", pos_raw[2]])
+            opportunity.append(["Date", pos_raw[3]])
+            if (pos_raw[4] == "None"):
+                opportunity.append(["Salary", "N/A"])
             else:
-                application.append(["Salary", "${:.2f}".format(float(app[5]))])
+                opportunity.append(["Salary", "${:.2f}"
+                                   .format(float(pos_raw[4]))])
             opportunities.append(opportunity)
 
     # opportunities = [[["Link", "https://fakelink.com/bogus.html"],
@@ -154,17 +155,18 @@ def view():
         applications = None
     else:
         applications = []
-        for app in applications_raw:
+        for app_raw in applications_raw:
             application = []
-            application.append(["Link", app[1]])
-            application.append(["Company", app[2]])
-            application.append(["Position", app[3]])
-            application.append(["Date", app[4]])
-            if (app[5] == "None"):
+            application.append(["Link", app_raw[1]])
+            application.append(["Company", app_raw[2]])
+            application.append(["Position", app_raw[3]])
+            application.append(["Date", app_raw[4]])
+            if (app_raw[5] == "None"):
                 application.append(["Salary", "N/A"])
             else:
-                application.append(["Salary", "${:.2f}".format(float(app[5]))])
-            application.append(["Status", app[6]])
+                application.append(["Salary", "${:.2f}"
+                                   .format(float(app_raw[5]))])
+            application.append(["Status", app_raw[6]])
             applications.append(application)
 
     # applications = [[["Link", "fake link"],
