@@ -11,6 +11,9 @@
             <th>Position</th>
             <th>Start Date</th>
             <th>Salary</th>
+            {% if logged_in %}
+            <th>Apply</th>
+            {% endif %}
         </tr>
         {% for opportunity in opportunities %}
         <tr class="internships">
@@ -23,13 +26,16 @@
                 {% endif %}
             </td>
             {% endfor %}
+						
             {% if logged_in %}
+            <td class="internship">
             <form action="/add" method="post" id="{{ opportunity[0] }}">
                 {% for elem in opportunity %}
                 <input type="hidden" name="{{ elem[0] }}" value="{{ elem[1] }}">
                 {% endfor %}
             </form>
             <button type="submit" form="{{ opportunity[0] }}" value="Apply" class="apply-submit-button">Apply</button>
+            </td>
             {% endif %}
         </tr>
         {% endfor %}
