@@ -120,10 +120,13 @@ def find():
         for pos in opportunities_raw:
             opportunity = []
             opportunity.append(["Link", pos[0]])
-            opportunity.append(["company", pos[1]])
-            opportunity.append(["date", pos[2]])
-            opportunity.append(["position", pos[3]])
-            opportunity.append(["salary", "${:.2f}".format(float(app[5]))])
+            opportunity.append(["Company", pos[1]])
+            opportunity.append(["Date", pos[2]])
+            opportunity.append(["Position", pos[3]])
+            if (app[5] == "None"):
+                application.append(["Salary", "N/A"])
+            else:
+                application.append(["Salary", "${:.2f}".format(float(app[5]))])
             opportunities.append(opportunity)
 
     # opportunities = [[["Link", "https://fakelink.com/bogus.html"],
@@ -153,12 +156,15 @@ def view():
         applications = []
         for app in applications_raw:
             application = []
-            application.append(["link", app[1]])
-            application.append(["company", app[2]])
-            application.append(["position", app[3]])
-            application.append(["date", app[4]])
-            application.append(["salary", "${:.2f}".format(float(app[5]))])
-            application.append(["status", app[6]])
+            application.append(["Link", app[1]])
+            application.append(["Company", app[2]])
+            application.append(["Position", app[3]])
+            application.append(["Date", app[4]])
+            if (app[5] == "None"):
+                application.append(["Salary", "N/A"])
+            else:
+                application.append(["Salary", "${:.2f}".format(float(app[5]))])
+            application.append(["Status", app[6]])
             applications.append(application)
 
     # applications = [[["Link", "fake link"],
