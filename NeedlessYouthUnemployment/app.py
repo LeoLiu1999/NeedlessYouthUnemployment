@@ -197,10 +197,6 @@ def view():
             application.append(["Position", app_raw[3]])
             application.append(["Date", app_raw[4]])
             application.append(["Salary", app_raw[5]])
-
-
-
-
             application.append(["Status", app_raw[6]])
             applications.append(application)
 
