@@ -4,7 +4,7 @@
 
 ### Project Description
 
-Needless Youth Unemployment is a 2021 Spring Senior Design project by Leo Liu, Rihui Zheng, Md Abedin, and Kyle Lin. It is a software to help find and organize internship and job applications.
+Needless Youth Unemployment is a 2021 Spring Senior Design project by Leo Liu, Rihui Zheng, Md Abedin, and Kyle Lin. It is a software that helps users find and organize internship and job applications, mostly related to the tech field.
 
 Deployment can be found [here](https://needless-youth-unemployment.herokuapp.com/).
 
@@ -13,6 +13,13 @@ Deployment can be found [here](https://needless-youth-unemployment.herokuapp.com
 ### Requirements
 
 Needless Youth Unemployment was written in Python 3.9 and requires the installation of flask to run, flake8 to test, and gunicorn to deploy. All three required modules can be installed using the [requirements file](requirements.txt).
+
+### Actionable Requirements
+- Users can create and account
+- Users can log in
+- Users can save an internship to their account
+- Users can view their saved internships
+- Database should store user details and internship details from web scraping
 
 ### Local Launch Instructions
 
