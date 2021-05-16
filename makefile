@@ -10,9 +10,8 @@ run_local:
 	python3 $(PROJ_DIR)/app.py
 
 prod: tests
-	git checkout dev
 	git commit -a
-	git push origin dev
+	git push origin master
 
 usr_env:
 	pip3 install --user -r requirements.txt

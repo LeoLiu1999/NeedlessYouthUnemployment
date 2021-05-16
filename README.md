@@ -61,6 +61,8 @@ make run_local
 
 `heroku`: Target to create a Heroku app if one does not already exist.
 
+`docs`: Target to extract docstrings of functions
+
 ---
 
 ### Documents
