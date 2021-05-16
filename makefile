@@ -11,7 +11,7 @@ run_local:
 
 prod: tests
 	git commit -a
-	git push origin master
+	git push
 
 usr_env:
 	pip3 install --user -r requirements.txt
